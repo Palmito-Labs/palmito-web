@@ -1,0 +1,19 @@
+# Local tunnel and development logs
+*.log
+cloudflared-*.log
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

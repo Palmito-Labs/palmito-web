@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Palmito Labs Logo Final</title>
+    <style>
+      :root {
+        --ink: #07192c;
+        --sea: #668d89;
+        --cream: #fff8ea;
+        --paper: #fffdf7;
+        --line: #e3d9c7;
+      }
+
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: Inter, Arial, sans-serif;
+        padding: 36px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+      }
+
+      p {
+        color: var(--sea);
+        margin: 0 0 28px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .card {
+        align-items: center;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        display: grid;
+        gap: 16px;
+        min-height: 230px;
+        padding: 22px;
+      }
+
+      .dark {
+        background: var(--ink);
+      }
+
+      img {
+        display: block;
+        height: auto;
+        justify-self: center;
+        max-height: 150px;
+        max-width: 100%;
+      }
+
+      code {
+        color: var(--sea);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Palmito Labs Logo Final</h1>
+    <p>Variante A4.3 aplicada como familia de recursos PNG.</p>
+    <section class="grid">
+      <article class="card">
+        <img src="png/palmito-labs-primary.png" alt="Logo principal">
+        <code>palmito-labs-primary.png</code>
+      </article>
+      <article class="card">
+        <img src="png/palmito-labs-horizontal.png" alt="Logo horizontal">
+        <code>palmito-labs-horizontal.png</code>
+      </article>
+      <article class="card">
+        <img src="png/palmito-labs-compact.png" alt="Logo compacto">
+        <code>palmito-labs-compact.png</code>
+      </article>
+      <article class="card">
+        <img src="png/palmito-labs-isotype.png" alt="Isotipo">
+        <code>palmito-labs-isotype.png</code>
+      </article>
+      <article class="card dark">
+        <img src="png/palmito-labs-primary-light.png" alt="Logo claro">
+        <code>palmito-labs-primary-light.png</code>
+      </article>
+      <article class="card dark">
+        <img src="png/palmito-labs-horizontal-light.png" alt="Logo horizontal claro">
+        <code>palmito-labs-horizontal-light.png</code>
+      </article>
+    </section>
+  </body>
+</html>

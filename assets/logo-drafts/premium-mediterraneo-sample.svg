@@ -1,0 +1,25 @@
+<svg width="1000" height="620" viewBox="0 0 1000 620" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Palmito Labs premium mediterráneo sample</title>
+  <desc id="desc">Muestra de logo con Palmito grande, Labs ligero debajo y abanico mediterráneo integrado sobre la derecha.</desc>
+  <rect width="1000" height="620" fill="#FFF8EA"/>
+  <path d="M0 0H1000V322H0V0Z" fill="#FFFDF7"/>
+  <path d="M0 484L1000 384V620H0V484Z" fill="#F5EBDA"/>
+  <rect x="72" y="82" width="856" height="460" fill="white" fill-opacity="0.62" stroke="#E3D9C7"/>
+  <g filter="url(#shadow)">
+    <text x="160" y="306" font-family="Segoe UI, Arial, sans-serif" font-size="122" font-weight="700" fill="#07192C" letter-spacing="-5">Palmito</text>
+    <text x="160" y="437" font-family="Segoe UI Light, Segoe UI, Arial, sans-serif" font-size="78" font-weight="300" fill="#668D89" letter-spacing="-2">Labs</text>
+  </g>
+  <g transform="translate(672 160) rotate(7)">
+    <path d="M0 76L26 14C44 20 59 28 76 42L12 83L0 76Z" fill="#5D8582"/>
+    <path d="M31 84L48 4C69 5 87 9 103 18L45 89L31 84Z" fill="#B7D2C9"/>
+    <path d="M65 91L78 0C98 3 117 10 132 21L80 96L65 91Z" fill="#E1C797"/>
+    <path d="M96 99L114 11C134 17 150 27 164 40L112 105L96 99Z" fill="#D9684B"/>
+    <path d="M127 111L161 42C177 54 190 69 198 87L144 119L127 111Z" fill="#E8D6AE"/>
+    <path d="M3 77C40 33 90 18 151 43C166 49 181 63 198 87" stroke="#07192C" stroke-opacity="0.16" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <defs>
+    <filter id="shadow" x="140" y="190" width="690" height="290" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#07192C" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+</svg>

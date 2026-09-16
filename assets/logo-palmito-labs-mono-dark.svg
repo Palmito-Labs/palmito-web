@@ -1,0 +1,12 @@
+<svg width="980" height="210" viewBox="0 0 980 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Palmito Labs mono dark logo</title>
+  <desc id="desc">Logo monocromo oscuro de Palmito Labs.</desc>
+  <text x="36" y="136" font-family="Inter, Arial, sans-serif" font-size="96" font-weight="760" fill="#07192C" letter-spacing="-4">Palmito</text>
+  <text x="514" y="136" font-family="Inter, Arial, sans-serif" font-size="80" font-weight="330" fill="#07192C" letter-spacing="-2">Labs</text>
+  <g transform="translate(432 34) scale(0.72) rotate(8)" fill="#07192C">
+    <path d="M0 88L30 10C48 16 65 25 80 38L12 96L0 88Z"/>
+    <path d="M43 98L62 0C82 1 101 6 119 15L58 103L43 98Z"/>
+    <path d="M84 105L106 6C127 12 147 23 164 38L99 113L84 105Z"/>
+    <path d="M123 119L181 54C196 70 208 88 216 108L139 130L123 119Z"/>
+  </g>
+</svg>

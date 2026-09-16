@@ -1,0 +1,20 @@
+<svg width="760" height="420" viewBox="0 0 760 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Palmito Labs stacked logo</title>
+  <desc id="desc">Logo apilado de Palmito Labs con abanico mediterráneo inspirado en la propuesta 3.</desc>
+  <defs>
+    <filter id="softShadow" x="-10%" y="-15%" width="120%" height="135%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#0A1A2B" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <g filter="url(#softShadow)">
+    <text x="80" y="215" font-family="Inter, Arial, sans-serif" font-size="116" font-weight="760" fill="#07192C" letter-spacing="-5">Palmito</text>
+    <text x="82" y="312" font-family="Inter, Arial, sans-serif" font-size="80" font-weight="330" fill="#668D89" letter-spacing="-2">Labs</text>
+  </g>
+  <g transform="translate(472 78) rotate(8)">
+    <path d="M0 88L30 10C48 16 65 25 80 38L12 96L0 88Z" fill="#5D8582"/>
+    <path d="M43 98L62 0C82 1 101 6 119 15L58 103L43 98Z" fill="#B7D2C9"/>
+    <path d="M84 105L106 6C127 12 147 23 164 38L99 113L84 105Z" fill="#D9684B"/>
+    <path d="M123 119L181 54C196 70 208 88 216 108L139 130L123 119Z" fill="#E8D6AE"/>
+    <path d="M4 88C45 26 117 15 181 54" stroke="#07192C" stroke-width="2.5" stroke-linecap="round" opacity="0.18"/>
+  </g>
+</svg>
