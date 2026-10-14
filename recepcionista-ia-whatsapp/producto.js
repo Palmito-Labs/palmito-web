@@ -16,6 +16,9 @@ function next() {
   timer = setTimeout(next, 2200);
 }
 play.hidden = false;
+const read = document.querySelector('#demo-read');
+read.hidden = false;
+read.addEventListener('click', complete);
 play.addEventListener('click', () => {
   stop();
   if (reduced.matches) { complete(); return; }
