@@ -30,3 +30,12 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 .privacy-note { max-width: 820px; padding-top: 24px; font-size: .95rem; }
 @media(max-width:920px){ .product-hero,.demo-layout { grid-template-columns: 1fr; } }
 @media(max-width:560px){ .product-hero h1 { font-size: clamp(2.2rem,9vw,3rem); } .form-grid { grid-template-columns: 1fr; gap: 0; } .demo-phone { padding: 16px; } .demo-record { padding: 20px; } .demo-chat { min-height: 0; } }
+
+.demo-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; margin: 0 0 28px; counter-reset: demo; }
+.demo-steps li { counter-increment: demo; padding: 14px; border: 1px solid var(--line); border-radius: 10px; font-weight: 650; background: white; }
+.demo-steps li::before { content: counter(demo) ". "; }
+.demo-steps li[aria-current="step"] { color: white; background: var(--ink); border-color: var(--ink); }
+.demo-chat .bubble:not([hidden]) { animation: message-in .25s ease-out; }
+@keyframes message-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media(max-width:560px) { .demo-steps { grid-template-columns: repeat(2,minmax(0,1fr)); font-size: .85rem; } .demo-steps li { padding: 12px; } .demo-controls { gap: 8px; } .demo-controls .button { width: auto; flex: 1 1 120px; font-size: .9rem; } }
+@media(prefers-reduced-motion:reduce) { .demo-chat .bubble:not([hidden]) { animation: none; } }

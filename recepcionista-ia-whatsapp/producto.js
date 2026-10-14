@@ -5,13 +5,18 @@ const play = document.querySelector('#demo-play');
 const pause = document.querySelector('#demo-pause');
 const status = document.querySelector('#demo-status');
 const record = document.querySelector('#demo-record');
+const steps = [...document.querySelectorAll('.demo-steps li')];
+const recordDetails = record.querySelector('dl');
+const recordProgress = document.querySelector('#record-progress');
+function showStep(step) { steps.forEach((item, i) => { if (i === step) item.setAttribute('aria-current', 'step'); else item.removeAttribute('aria-current'); }); }
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 let timer = null, index = 0, running = false;
 function stop() { clearTimeout(timer); running = false; pause.hidden = true; }
-function complete() { stop(); messages.forEach(m => m.hidden = false); record.classList.remove('is-pending'); status.textContent = 'Ejemplo completo. Solicitud pendiente de confirmación por el equipo.'; play.textContent = 'Repetir demo'; }
+function complete() { stop(); messages.forEach(m => m.hidden = false); record.classList.remove('is-pending'); recordDetails.hidden = false; recordProgress.hidden = true; showStep(3); status.textContent = 'Ejemplo completo. Solicitud pendiente de confirmación por el equipo.'; play.textContent = 'Repetir demo'; }
 function next() {
   if (index >= messages.length) { complete(); return; }
   messages[index++].hidden = false;
+  showStep([0, 1, 1, 2, 2, 3][index - 1]);
   status.textContent = `Mensaje ${index} de ${messages.length}`;
   timer = setTimeout(next, 2200);
 }
@@ -22,7 +27,7 @@ read.addEventListener('click', complete);
 play.addEventListener('click', () => {
   stop();
   if (reduced.matches) { complete(); return; }
-  index = 0; messages.forEach(m => m.hidden = true); record.classList.add('is-pending');
+  index = 0; messages.forEach(m => m.hidden = true); record.classList.add('is-pending'); recordDetails.hidden = true; recordProgress.hidden = false; steps.forEach(item => item.removeAttribute('aria-current'));
   running = true; pause.hidden = false; pause.textContent = 'Pausar'; play.textContent = 'Reiniciar demo'; next();
 });
 pause.addEventListener('click', () => {
@@ -52,3 +57,6 @@ form.addEventListener('submit', async event => {
     formStatus.textContent = 'No hemos podido confirmar el envío. Tus datos siguen aquí: puedes reintentarlo o escribir a hola@palmitolabs.com. Si ya lo enviaste, evita duplicar la solicitud.';
   } finally { clearTimeout(timeout); submit.disabled = false; }
 });
+
+// Close the mobile menu after choosing an in-page destination.
+document.querySelectorAll('.mobile-menu nav a').forEach(link => link.addEventListener('click', () => { link.closest('details').open = false; }));
