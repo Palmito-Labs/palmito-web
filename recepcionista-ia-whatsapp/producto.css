@@ -39,3 +39,7 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 @keyframes message-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 @media(max-width:560px) { .demo-steps { grid-template-columns: repeat(2,minmax(0,1fr)); font-size: .85rem; } .demo-steps li { padding: 12px; } .demo-controls { gap: 8px; } .demo-controls .button { width: auto; flex: 1 1 120px; font-size: .9rem; } }
 @media(prefers-reduced-motion:reduce) { .demo-chat .bubble:not([hidden]) { animation: none; } }
+
+.demo-phone .demo-chat { max-height: 560px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #8da79a #efeae2; }
+.demo-chat:focus-visible { outline: 3px solid var(--sea-dark); outline-offset: -3px; }
+@media(max-width:560px) { .demo-phone .demo-chat { max-height: 470px; } }

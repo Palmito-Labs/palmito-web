@@ -1,5 +1,6 @@
 
 'use strict';
+const chat = document.querySelector('#demo-chat');
 const messages = [...document.querySelectorAll('.demo-chat .bubble')];
 const play = document.querySelector('#demo-play');
 const pause = document.querySelector('#demo-pause');
@@ -12,18 +13,19 @@ function showStep(step) { steps.forEach((item, i) => { if (i === step) item.setA
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 let timer = null, index = 0, running = false;
 function stop() { clearTimeout(timer); running = false; pause.hidden = true; }
-function complete() { stop(); messages.forEach(m => m.hidden = false); record.classList.remove('is-pending'); recordDetails.hidden = false; recordProgress.hidden = true; showStep(3); status.textContent = 'Ejemplo completo. Solicitud pendiente de confirmación por el equipo.'; play.textContent = 'Repetir demo'; }
+function complete() { stop(); messages.forEach(m => m.hidden = false); record.classList.remove('is-pending'); recordDetails.hidden = false; recordProgress.hidden = true; showStep(3); status.textContent = 'Ejemplo completo. Dos citas agendadas en la simulación, con fecha, hora y profesional.'; play.textContent = 'Repetir demo'; }
 function next() {
   if (index >= messages.length) { complete(); return; }
   messages[index++].hidden = false;
-  showStep([0, 1, 1, 2, 2, 3][index - 1]);
+  showStep(Number(messages[index - 1].dataset.step));
+  chat.scrollTop = chat.scrollHeight;
   status.textContent = `Mensaje ${index} de ${messages.length}`;
   timer = setTimeout(next, 2200);
 }
 play.hidden = false;
 const read = document.querySelector('#demo-read');
 read.hidden = false;
-read.addEventListener('click', complete);
+read.addEventListener('click', () => { complete(); chat.scrollTop = 0; });
 play.addEventListener('click', () => {
   stop();
   if (reduced.matches) { complete(); return; }
