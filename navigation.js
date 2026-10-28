@@ -4,6 +4,7 @@
   const dialog = document.querySelector('#desktop-navigation');
   const rail = document.querySelector('.desktop-rail');
   const panel = dialog?.querySelector('.side-panel');
+  const scrim = dialog?.querySelector('.side-scrim');
   const toggle = rail?.querySelector('.rail-toggle');
   if (!dialog || !rail || !panel || !toggle || typeof dialog.showModal !== 'function') return;
   const desktop = matchMedia('(min-width: 1024px)');
@@ -37,7 +38,9 @@
     animateLogo();
     if (reduced.matches) { dialog.close(); afterClose?.(); return; }
     exitAnimation = panel.animate([{ transform: getComputedStyle(panel).transform }, { transform: 'translateX(-100%)' }], { duration: 450, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' });
-    exitAnimation.finished.then(() => { dialog.close(); exitAnimation.cancel(); afterClose?.(); }).catch(() => {});
+    // Wait for the scrim to reach transparent before removing the native dialog.
+    const fades = scrim.getAnimations().map(animation => animation.finished.catch(() => {}));
+    Promise.all([exitAnimation.finished, ...fades]).then(() => { dialog.close(); exitAnimation.cancel(); afterClose?.(); }).catch(() => {});
   }
   toggle.addEventListener('click', () => {
     if (!desktop.matches) return;
@@ -53,7 +56,7 @@
     closing = false;
     toggle.focus({ preventScroll: true });
   });
-  dialog.addEventListener('click', event => { if (event.target === dialog) closeMenu(); });
+  dialog.addEventListener('click', event => { if (event.target === dialog || event.target === scrim) closeMenu(); });
   [...dialog.querySelectorAll('a'), ...rail.querySelectorAll('a')].forEach(link => link.addEventListener('click', event => {
     if (!dialog.open || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
