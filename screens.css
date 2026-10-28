@@ -38,3 +38,24 @@ main > .intro, main > .process { align-content: center; }
   .product-page .product-hero .hero-copy { padding: 28px 20px; }
   .product-page .product-hero .pilot-card { padding: 40px 24px; }
 }
+
+/* Fit the opening content to the real CSS viewport, including browser zoom. */
+@media(min-width:921px) {
+  .home .hero,.product-page .product-hero { padding-block: clamp(20px,4dvh,48px); column-gap: clamp(24px,4vw,60px); }
+  .home h1,.product-page h1 { font-size: clamp(1.9rem,min(4.5vw,7dvh),4.2rem); line-height: 1.07; margin-bottom: clamp(12px,2dvh,24px); }
+  .home .hero .eyebrow,.product-page .hero .eyebrow { margin-bottom: clamp(10px,1.8dvh,24px); }
+  .home .hero-label { margin-bottom: clamp(10px,2dvh,20px); }
+  .home .hero-copy > p:not(.eyebrow):not(.hero-label),.product-page .hero-copy > p:not(.eyebrow):not(.small-note) { font-size: clamp(.95rem,1.8dvh,1.1rem); line-height: 1.6; }
+  .home .hero-actions,.product-page .hero-actions { margin-top: clamp(12px,2.5dvh,32px); }
+  .home .hero-points,.product-page .hero-points { margin-top: clamp(10px,2dvh,24px); }
+  .home .home-product .demo-chat { max-height: clamp(150px,calc(100dvh - 360px),490px); }
+  .home .home-demo-note { font-size: .66rem; line-height: 1.4; margin-top: 6px; padding: 4px 6px; }
+  .home .hero,.product-page .product-hero { padding-inline: clamp(28px,5vw,80px); }
+}
+@media(min-width:921px) and (max-height:650px) {
+  .home .hero-points li,.product-page .hero-points li { font-size: .7rem; }
+  .home .hero-label { padding-block: 6px; font-size: .68rem !important; }
+  .home .product-caption { margin-bottom: 8px; }
+  .home .home-record { padding: 10px 12px; margin-top: 10px; }
+  .product-page .pilot-card { padding: 24px; }
+}

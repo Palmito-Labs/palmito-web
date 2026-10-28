@@ -6,13 +6,17 @@
   if (!dialog || !toggle || typeof dialog.showModal !== 'function') return;
   const desktop = matchMedia('(min-width: 1024px)');
   document.documentElement.classList.add('side-nav-ready');
-  let animationTimer;
+  let closing = false;
   function animateLogo() {
-    clearTimeout(animationTimer);
-    toggle.classList.remove('is-animating');
-    void toggle.offsetWidth;
-    toggle.classList.add('is-animating');
-    animationTimer = setTimeout(() => toggle.classList.remove('is-animating'), 650);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    toggle.querySelectorAll('animateTransform').forEach(animation => animation.beginElement());
+  }
+  function closeMenu(immediate = false) {
+    if (!dialog.open || closing) return;
+    if (immediate || matchMedia('(prefers-reduced-motion: reduce)').matches) { dialog.close(); return; }
+    closing = true;
+    const animation = dialog.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-100%)' }], { duration: 320, easing: 'cubic-bezier(.4,0,1,1)', fill: 'forwards' });
+    animation.finished.then(() => { dialog.close(); animation.cancel(); closing = false; }).catch(() => { closing = false; });
   }
   function reflectOpen(open) {
     toggle.setAttribute('aria-expanded', String(open));
@@ -22,17 +26,18 @@
   }
   toggle.addEventListener('click', () => {
     if (!desktop.matches) return;
-    if (dialog.open) dialog.close();
+    if (dialog.open) closeMenu();
     else { dialog.showModal(); reflectOpen(true); }
   });
-  dialog.querySelector('.side-close').addEventListener('click', () => dialog.close());
+  dialog.querySelector('.side-close').addEventListener('click', () => closeMenu());
+  dialog.addEventListener('cancel', event => { event.preventDefault(); closeMenu(); });
   dialog.addEventListener('close', () => reflectOpen(false));
   dialog.addEventListener('click', event => {
     const rect = dialog.getBoundingClientRect();
-    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) closeMenu();
   });
-  dialog.querySelectorAll('a').forEach(link => link.addEventListener('click', () => dialog.close()));
-  desktop.addEventListener('change', () => { if (!desktop.matches && dialog.open) dialog.close(); });
+  dialog.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
+  desktop.addEventListener('change', () => { if (!desktop.matches && dialog.open) closeMenu(true); });
 })();
 
 // Keep the first screen aligned below the actual mobile/tablet header.
@@ -40,13 +45,10 @@
   const header = document.querySelector('.site-header');
   const menu = document.querySelector('.mobile-menu');
   const summary = menu?.querySelector('summary');
-  let timer;
+
   if (menu && summary) menu.addEventListener('toggle', () => {
-    clearTimeout(timer);
-    summary.classList.remove('is-animating');
-    void summary.offsetWidth;
-    summary.classList.add('is-animating');
-    timer = setTimeout(() => summary.classList.remove('is-animating'), 650);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    summary.querySelectorAll('animateTransform').forEach(animation => animation.beginElement());
   });
   const measure = () => document.documentElement.style.setProperty('--header-height', `${header?.getBoundingClientRect().height || 0}px`);
   if (header && typeof ResizeObserver === 'function') new ResizeObserver(measure).observe(header);
