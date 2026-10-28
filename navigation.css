@@ -11,9 +11,6 @@ html { scrollbar-gutter: stable; }
 .side-panel { position: absolute; inset: 0 auto 0 0; width: var(--drawer-width); height: 100%; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #6e809c #172b4d; overscroll-behavior: contain; background: #172b4d; color: #faf7f2; padding: 26px; box-shadow: 8px 0 32px #07192c24; z-index: 20; }
 .side-dialog[open] .side-panel { animation: drawer-arrive 450ms var(--menu-ease); }
 .menu-modal-active { overflow: hidden; overflow-anchor: none; }
-.side-heading { display: flex; gap: 12px; align-items: center; justify-content: space-between; }
-.side-heading p { font-size: .65rem; letter-spacing: .07em; text-transform: uppercase; color: #e5c7b5; margin: 0; }
-.side-close { border: 1px solid #ffffff45; border-radius: 50%; width: 44px; height: 44px; background: transparent; color: white; font-size: 1.6rem; cursor: pointer; flex-shrink: 0; }
 .side-brand { display: block; margin: 28px 0 24px; }
 .side-brand img { display: block; width: 240px; max-width: 100%; height: auto; }
 .side-links { display: grid; counter-reset: navigation; }
@@ -21,7 +18,6 @@ html { scrollbar-gutter: stable; }
 .side-links a::before { counter-increment: navigation; content: '0' counter(navigation); color: #e5c7b5; font-size: .65rem; }
 .side-links a:hover { color: #f1ba9d; }
 .side-links .nav-contact { justify-content: flex-start; border: 0; border-bottom: 1px solid #ffffff26; border-radius: 0; }
-.side-note { margin-top: 32px; color: #d3dced; line-height: 1.8; font-size: .8rem; }
 .side-panel :focus-visible,.rail-toggle:focus-visible,.rail-brand:focus-visible,.mobile-menu-toggle:focus-visible { outline: 3px solid #e5b395; outline-offset: 4px; }
 @keyframes drawer-arrive { from { transform: translateX(-100%); } to { transform: translateX(0); } }
 /* Portrait and tablet navigation shares the desktop panel and animation. */
@@ -81,3 +77,12 @@ html { scrollbar-gutter: stable; }
   .rail-brand { top: calc(18dvh + 88px); height: 210px; }
   .rail-brand img { width: 190px; }
 }
+
+/* Company introduction and product hierarchy replace the redundant home row. */
+.side-intro { color: #d3dced; font-size: .81rem; line-height: 1.75; margin: 0 0 22px; }
+.side-panel .side-brand { margin-top: 8px; margin-bottom: 18px; }
+.product-subnav { list-style: none; margin: 2px 0 10px 26px; padding: 0 0 0 12px; border-left: 1px solid #ffffff35; }
+.side-links .product-subnav a { min-height: 44px; padding: 10px 0; border: 0; font-size: .82rem; color: #d3dced; }
+.side-links .product-subnav a::before { content: none; counter-increment: none; }
+.side-links .product-subnav a:hover { color: #f1ba9d; }
+@media(orientation:landscape) and (min-width:640px) and (max-height:600px) { .side-intro { font-size: .75rem; margin-bottom: 12px; } }

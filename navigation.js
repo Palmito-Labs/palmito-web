@@ -62,7 +62,6 @@
     Promise.all([exitAnimation.finished, ...fades]).then(() => { dialog.close(); exitAnimation.cancel(); afterClose?.(); }).catch(() => {});
   }
   triggers.forEach(button => button.addEventListener('click', () => { if (dialog.open) closeMenu(); else openMenu(); }));
-  dialog.querySelector('.side-close').addEventListener('click', () => closeMenu());
   dialog.addEventListener('cancel', event => { event.preventDefault(); closeMenu(); });
   dialog.addEventListener('close', () => {
     railHome.after(rail); headerHome.after(spacer, header); spacer.style.height = '0px';
