@@ -14,8 +14,8 @@
   .rail-toggle > span { font-size: .7rem; letter-spacing: .09em; text-transform: uppercase; }
   .nav-fan { width: 60px; height: 48px; overflow: visible; }
   .fan-turn { transform-box: fill-box; transform-origin: center; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-  .rail-toggle[aria-expanded="true"] .fan-turn { transform: rotate(180deg); }
-  .fan-piece { transform-box: fill-box; transform-origin: center; }
+  .rail-toggle[aria-expanded="true"] .fan-turn { transform: none; }
+  .fan-piece { transform-box: view-box; transform-origin: 166px 260px; }
   .is-animating .fan-piece { animation: fan-scatter .6s cubic-bezier(.2,.7,.2,1); }
   .rail-caption { margin-top: auto; writing-mode: vertical-rl; transform: rotate(180deg); font-size: .65rem; letter-spacing: .12em; color: #d3dced; margin-bottom: 30px; }
   .side-dialog { position: fixed; inset: 0 auto 0 104px; margin: 0; width: min(390px,calc(100vw - 104px)); max-width: none; height: 100dvh; max-height: none; background: #172b4d; color: #faf7f2; padding: 30px; overflow-y: auto; box-shadow: 20px 0 70px #07192c33; }
@@ -42,8 +42,8 @@
 @media(max-width:1023px) {
   .mobile-menu .nav-fan { width: 32px; height: 26px; overflow: visible; }
   .mobile-menu .fan-turn { transform-box: fill-box; transform-origin: center; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-  .mobile-menu[open] .fan-turn { transform: rotate(180deg); }
-  .mobile-menu .fan-piece { transform-box: fill-box; transform-origin: center; }
+  .mobile-menu[open] .fan-turn { transform: none; }
+  .mobile-menu .fan-piece { transform-box: view-box; transform-origin: 166px 260px; }
   .mobile-menu .is-animating .fan-piece { animation: fan-scatter .6s cubic-bezier(.2,.7,.2,1); }
   .mobile-menu[open] nav { animation: mobile-menu-arrive .2s ease-out; }
 }
