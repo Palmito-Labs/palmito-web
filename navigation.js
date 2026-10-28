@@ -2,41 +2,63 @@
 'use strict';
 (() => {
   const dialog = document.querySelector('#desktop-navigation');
-  const toggle = document.querySelector('.rail-toggle');
-  if (!dialog || !toggle || typeof dialog.showModal !== 'function') return;
+  const rail = document.querySelector('.desktop-rail');
+  const panel = dialog?.querySelector('.side-panel');
+  const toggle = rail?.querySelector('.rail-toggle');
+  if (!dialog || !rail || !panel || !toggle || typeof dialog.showModal !== 'function') return;
   const desktop = matchMedia('(min-width: 1024px)');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const home = document.createComment('Desktop rail returns here when the menu closes');
+  rail.before(home);
   document.documentElement.classList.add('side-nav-ready');
   let closing = false;
+  let exitAnimation;
   function animateLogo() {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    toggle.querySelectorAll('animateTransform').forEach(animation => animation.beginElement());
+    if (!reduced.matches) toggle.querySelectorAll('animateTransform').forEach(animation => animation.beginElement());
   }
-  function closeMenu(immediate = false) {
-    if (!dialog.open || closing) return;
-    if (immediate || matchMedia('(prefers-reduced-motion: reduce)').matches) { dialog.close(); return; }
-    closing = true;
-    const animation = dialog.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-100%)' }], { duration: 320, easing: 'cubic-bezier(.4,0,1,1)', fill: 'forwards' });
-    animation.finished.then(() => { dialog.close(); animation.cancel(); closing = false; }).catch(() => { closing = false; });
-  }
-  function reflectOpen(open) {
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
-    document.body.classList.toggle('desktop-menu-open', open);
+  function openMenu() {
+    // Keep the real rail in the modal's top layer, above the sliding panel.
+    dialog.prepend(rail);
+    dialog.showModal();
+    void rail.offsetWidth;
+    document.body.classList.add('desktop-menu-open', 'menu-modal-active');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Cerrar menú de navegación');
     animateLogo();
+  }
+  function closeMenu(immediate = false, afterClose) {
+    if (!dialog.open) return;
+    if (immediate) {
+      exitAnimation?.cancel(); closing = false; dialog.close(); afterClose?.(); return;
+    }
+    if (closing) return;
+    closing = true;
+    document.body.classList.remove('desktop-menu-open');
+    animateLogo();
+    if (reduced.matches) { dialog.close(); afterClose?.(); return; }
+    exitAnimation = panel.animate([{ transform: getComputedStyle(panel).transform }, { transform: 'translateX(-100%)' }], { duration: 450, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' });
+    exitAnimation.finished.then(() => { dialog.close(); exitAnimation.cancel(); afterClose?.(); }).catch(() => {});
   }
   toggle.addEventListener('click', () => {
     if (!desktop.matches) return;
-    if (dialog.open) closeMenu();
-    else { dialog.showModal(); reflectOpen(true); }
+    if (dialog.open) closeMenu(); else openMenu();
   });
   dialog.querySelector('.side-close').addEventListener('click', () => closeMenu());
   dialog.addEventListener('cancel', event => { event.preventDefault(); closeMenu(); });
-  dialog.addEventListener('close', () => reflectOpen(false));
-  dialog.addEventListener('click', event => {
-    const rect = dialog.getBoundingClientRect();
-    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) closeMenu();
+  dialog.addEventListener('close', () => {
+    home.after(rail);
+    document.body.classList.remove('desktop-menu-open', 'menu-modal-active');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú de navegación');
+    closing = false;
+    toggle.focus({ preventScroll: true });
   });
-  dialog.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
+  dialog.addEventListener('click', event => { if (event.target === dialog) closeMenu(); });
+  [...dialog.querySelectorAll('a'), ...rail.querySelectorAll('a')].forEach(link => link.addEventListener('click', event => {
+    if (!dialog.open || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    closeMenu(false, () => location.assign(link.href));
+  }));
   desktop.addEventListener('change', () => { if (!desktop.matches && dialog.open) closeMenu(true); });
 })();
 
