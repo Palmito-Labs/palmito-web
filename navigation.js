@@ -34,3 +34,22 @@
   dialog.querySelectorAll('a').forEach(link => link.addEventListener('click', () => dialog.close()));
   desktop.addEventListener('change', () => { if (!desktop.matches && dialog.open) dialog.close(); });
 })();
+
+// Keep the first screen aligned below the actual mobile/tablet header.
+(() => {
+  const header = document.querySelector('.site-header');
+  const menu = document.querySelector('.mobile-menu');
+  const summary = menu?.querySelector('summary');
+  let timer;
+  if (menu && summary) menu.addEventListener('toggle', () => {
+    clearTimeout(timer);
+    summary.classList.remove('is-animating');
+    void summary.offsetWidth;
+    summary.classList.add('is-animating');
+    timer = setTimeout(() => summary.classList.remove('is-animating'), 650);
+  });
+  const measure = () => document.documentElement.style.setProperty('--header-height', `${header?.getBoundingClientRect().height || 0}px`);
+  if (header && typeof ResizeObserver === 'function') new ResizeObserver(measure).observe(header);
+  window.addEventListener('resize', measure);
+  measure();
+})();

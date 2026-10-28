@@ -38,3 +38,17 @@
 @keyframes fan-scatter { 0%,100% { transform: translate(0,0) rotate(0); } 45% { transform: translate(var(--dx),var(--dy)) rotate(var(--tilt)); } }
 @keyframes drawer-arrive { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: translateX(0); } }
 @media(prefers-reduced-motion:reduce) { .fan-turn { transition: none; } .is-animating .fan-piece,.side-dialog[open] { animation: none; } }
+
+@media(max-width:1023px) {
+  .mobile-menu .nav-fan { width: 32px; height: 26px; overflow: visible; }
+  .mobile-menu .fan-turn { transform-box: fill-box; transform-origin: center; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .mobile-menu[open] .fan-turn { transform: rotate(180deg); }
+  .mobile-menu .fan-piece { transform-box: fill-box; transform-origin: center; }
+  .mobile-menu .is-animating .fan-piece { animation: fan-scatter .6s cubic-bezier(.2,.7,.2,1); }
+  .mobile-menu[open] nav { animation: mobile-menu-arrive .2s ease-out; }
+}
+@keyframes mobile-menu-arrive { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+@media(prefers-reduced-motion:reduce) {
+  .mobile-menu .fan-turn { transition: none; }
+  .mobile-menu .is-animating .fan-piece,.mobile-menu[open] nav { animation: none; }
+}

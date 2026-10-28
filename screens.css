@@ -1,0 +1,40 @@
+
+/* Viewport-sized chapters grow naturally when their content needs more room. */
+:root { --screen-height: 100vh; --header-height: 100px; }
+@supports(height: 100dvh) { :root { --screen-height: 100dvh; } }
+html { scroll-padding-top: 24px; }
+main > .section, main > .cta { min-height: var(--screen-height); }
+main > .section:not(.intro):not(.process), main > .cta { display: flex; flex-direction: column; justify-content: center; }
+main > .intro, main > .process { align-content: center; }
+.home .hero, .product-page .product-hero { min-height: max(0px,calc(var(--screen-height) - var(--header-height))); }
+.home .hero, .product-page .product-hero { align-content: center; }
+@media(min-width:1024px) {
+  .side-nav-ready { --header-height: 0px; }
+}
+@media(max-width:920px) {
+  /* The introduction and chat each get a complete screen, rather than half a chat. */
+  .home .hero { display: block; padding: 0; }
+  .home .hero-copy { min-height: max(0px,calc(var(--screen-height) - var(--header-height))); display: flex; flex-direction: column; justify-content: center; padding: 36px 28px; max-width: none; }
+  .home .hero-copy > .hero-label { align-self: flex-start; }
+  .home .hero-copy > .hero-actions { margin-bottom: 0; }
+  .home .hero-copy > .hero-points { flex-shrink: 0; }
+  .home .home-product { min-height: var(--screen-height); display: flex; flex-direction: column; justify-content: center; padding: 32px 28px; max-width: none; margin: 0; background: #f1ede7; }
+  .home .home-product > * { width: 100%; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .home .home-product .demo-chat { max-height: clamp(200px,calc(var(--screen-height) - 310px),490px); }
+}
+@media(max-width:560px) {
+  .home .hero-copy { padding: 28px 20px; }
+  .home .home-product { padding: 28px 20px; }
+}
+@media(max-height:600px) and (min-width:921px) {
+  .home .hero,.product-page .product-hero { padding-top: 32px; padding-bottom: 32px; }
+}
+@media(max-width:920px) {
+  .product-page .product-hero { display: block; padding: 0; }
+  .product-page .product-hero .hero-copy { min-height: max(0px,calc(var(--screen-height) - var(--header-height))); display: flex; flex-direction: column; justify-content: center; padding: 36px 28px; max-width: none; }
+  .product-page .product-hero .pilot-card { min-height: var(--screen-height); max-width: none; display: flex; flex-direction: column; justify-content: center; padding: 48px max(28px,calc((100vw - 640px)/2)); border-radius: 0; border-left: 0; border-right: 0; box-shadow: none; }
+}
+@media(max-width:560px) {
+  .product-page .product-hero .hero-copy { padding: 28px 20px; }
+  .product-page .product-hero .pilot-card { padding: 40px 24px; }
+}
