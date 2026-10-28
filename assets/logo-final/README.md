@@ -16,3 +16,7 @@ Dirección final basada en la variante A4.3: `Palmito` protagonista, `Labs` deba
 - `png/palmito-labs-isotype-transparent.png`: isotipo transparente.
 - `png/palmito-labs-isotype-light.png`: isotipo claro para fondos oscuros.
 - `png/favicon.png`: favicon.
+
+## Navegación compacta
+
+`palmito-labs-navigation-dark.svg` y `palmito-labs-navigation-light.svg` reutilizan los elementos raster del logo final en una composición horizontal compacta para la barra vertical y la cabecera móvil. Mantienen el abanico final y el dibujo de las letras; Labs usa tinta oscura o clara para mejorar su lectura. Los PNG originales se conservan intactos.

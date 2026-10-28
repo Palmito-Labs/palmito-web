@@ -15,7 +15,7 @@ html { scrollbar-gutter: stable; }
 .side-heading p { font-size: .65rem; letter-spacing: .07em; text-transform: uppercase; color: #e5c7b5; margin: 0; }
 .side-close { border: 1px solid #ffffff45; border-radius: 50%; width: 44px; height: 44px; background: transparent; color: white; font-size: 1.6rem; cursor: pointer; flex-shrink: 0; }
 .side-brand { display: block; margin: 28px 0 24px; }
-.side-brand img { display: block; width: 185px; max-width: 100%; height: auto; }
+.side-brand img { display: block; width: 240px; max-width: 100%; height: auto; }
 .side-links { display: grid; counter-reset: navigation; }
 .side-links a { display: flex; align-items: center; gap: 14px; padding: 18px 0; min-height: 56px; border-bottom: 1px solid #ffffff26; font-size: 1rem; line-height: 1.4; }
 .side-links a::before { counter-increment: navigation; content: '0' counter(navigation); color: #e5c7b5; font-size: .65rem; }
@@ -31,13 +31,13 @@ html { scrollbar-gutter: stable; }
   .side-nav-ready .site-header { position: sticky; top: 0; z-index: 30; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 20px; background: #faf7f2; border-bottom: 1px solid #e3ddd5; backdrop-filter: none; }
   .side-nav-ready .site-header .site-nav,.side-nav-ready .site-header .mobile-menu { display: none; }
   .side-nav-ready .site-header .brand-logo { width: min(200px,51vw); max-width: none; height: auto; }
-  .side-nav-ready .mobile-menu-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 10px; padding: 10px 12px; min-width: 76px; min-height: 48px; background: #b94f36; color: white; font: inherit; cursor: pointer; }
+  .side-nav-ready .mobile-menu-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 10px; padding: 10px 12px; min-width: 76px; min-height: 48px; background: #172b4d; color: white; font: inherit; cursor: pointer; }
   .mobile-menu-toggle > span { font-size: .75rem; font-weight: 650; }
   .mobile-menu-toggle .nav-fan { width: 32px; height: 26px; overflow: visible; }
   .side-dialog > .site-header { position: absolute; inset: 0 0 auto; z-index: 30; }
   .side-panel { top: var(--header-height); height: calc(100% - var(--header-height)); padding: 22px; }
   .side-brand { margin-block: 20px; }
-  .side-brand img { width: 160px; }
+  .side-brand img { width: 230px; }
   .side-links a { min-height: 52px; padding-block: 16px; }
 }
 /* Short landscape viewports use the slim rail, just like desktop. */
@@ -50,14 +50,14 @@ html { scrollbar-gutter: stable; }
   .side-nav-ready .desktop-rail { display: block; position: fixed; inset: 0 auto 0 0; width: var(--rail-width); background: #faf7f2; color: #172b4d; z-index: 30; border-right: 1px solid #e3ddd5; box-shadow: 4px 0 18px #172b4d09; transition: transform 450ms var(--menu-ease); }
   .rail-brand { position: absolute; top: calc(25dvh + 94px); left: 0; width: 64px; height: 238px; overflow: hidden; }
   .rail-brand img { display: block; position: absolute; left: 50%; top: 50%; width: 218px; max-width: none; height: auto; transform: translate(-50%,-50%) rotate(90deg); }
-  .rail-toggle { position: absolute; top: 25dvh; left: 0; display: grid; place-items: center; width: 72px; height: 72px; padding: 8px; background: #b94f36; border: 0; border-radius: 0 12px 12px 0; box-shadow: 5px 6px 18px #172b4d24; cursor: pointer; }
-  .rail-toggle:hover { background: #a3432d; }
+  .rail-toggle { position: absolute; top: 25dvh; left: 0; display: grid; place-items: center; width: 72px; height: 72px; padding: 8px; background: #172b4d; border: 0; border-radius: 0 12px 12px 0; box-shadow: 5px 6px 18px #172b4d24; cursor: pointer; }
+  .rail-toggle:hover,.mobile-menu-toggle:hover { background: #243f69; }
   .rail-toggle > span { display: none; }
   .rail-toggle .nav-fan { width: 54px; height: 42px; overflow: visible; }
   .rail-caption { display: none; }
   .side-panel { top: 0; height: 100%; padding: 26px; }
   .side-brand { margin: 28px 0 24px; }
-  .side-brand img { width: 185px; }
+  .side-brand img { width: 240px; }
   .desktop-menu-open .desktop-rail { transform: translateX(var(--drawer-width)); }
   main,.site-footer { transition: transform 450ms var(--menu-ease); }
   .desktop-menu-open main,.desktop-menu-open .site-footer { transform: translateX(var(--drawer-width)); }
@@ -69,7 +69,7 @@ html { scrollbar-gutter: stable; }
   .rail-toggle { top: 12dvh; width: 64px; height: 64px; }
   .rail-toggle .nav-fan { width: 46px; height: 36px; }
   .side-brand { margin: 12px 0; }
-  .side-brand img { width: 120px; }
+  .side-brand img { width: 180px; }
   .side-links a { padding-block: 12px; min-height: 48px; }
 }
 @media(prefers-reduced-motion:reduce) {

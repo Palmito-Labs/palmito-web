@@ -23,9 +23,9 @@
   mobileToggle.append(label, summary.querySelector('.nav-fan'));
   header.insertBefore(mobileToggle, header.querySelector('.mobile-menu'));
   const logo = header.querySelector('.brand-logo');
-  logo.src = '/assets/logo-final/png/palmito-labs-horizontal.png';
-  logo.srcset = '/assets/logo-final/png/palmito-labs-horizontal@2x.png 2x';
-  logo.width = 900; logo.height = 240;
+  logo.src = '/assets/logo-final/palmito-labs-navigation-dark.svg';
+  logo.removeAttribute('srcset');
+  logo.width = 740; logo.height = 190;
   const triggers = [railToggle, mobileToggle];
   function setExpanded(open) { triggers.forEach(button => { button.setAttribute('aria-expanded', String(open)); button.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'); }); }
   setExpanded(false);
