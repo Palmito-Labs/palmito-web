@@ -20,3 +20,7 @@ Dirección final basada en la variante A4.3: `Palmito` protagonista, `Labs` deba
 ## Navegación compacta
 
 `palmito-labs-navigation-dark.svg` y `palmito-labs-navigation-light.svg` reutilizan los elementos raster del logo final en una composición horizontal compacta para la barra vertical y la cabecera móvil. Mantienen el abanico final y el dibujo de las letras; Labs usa tinta oscura o clara para mejorar su lectura. Los PNG originales se conservan intactos.
+
+## Icono de pestaña
+
+`favicon-contrast.svg` y `favicon-contrast.png` presentan el isotipo final centrado y ampliado sobre azul tinta para mejorar su identificación a tamaño pequeño. El PNG de 64 × 64 sirve de alternativa a SVG. Los recursos anteriores se conservan.

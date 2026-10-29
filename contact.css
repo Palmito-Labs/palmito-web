@@ -1,0 +1,8 @@
+
+.floating-contact { position: fixed; right: max(20px,env(safe-area-inset-right)); bottom: max(20px,env(safe-area-inset-bottom)); z-index: 15; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 56px; min-height: 56px; padding: 14px 20px; border-radius: 999px; background: #172b4d; color: #fff; border: 1px solid #ffffff55; box-shadow: 0 6px 22px #07192c33; font-size: .9rem; font-weight: 650; transition: background-color .15s,transform .15s; }
+.floating-contact:hover { background: #243f69; transform: translateY(-2px); }
+.floating-contact:focus-visible { outline: 3px solid #b94f36; outline-offset: 4px; }
+.menu-modal-active .floating-contact { visibility: hidden; }
+.site-footer { padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
+@media(max-width:560px) { .floating-contact { width: 56px; height: 56px; padding: 14px; right: max(16px,env(safe-area-inset-right)); bottom: max(16px,env(safe-area-inset-bottom)); } .floating-contact > span { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }
+@media(prefers-reduced-motion:reduce) { .floating-contact { transition: none; } }
