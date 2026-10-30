@@ -1,0 +1,52 @@
+/* Start with the studio's offer; give the main product its own demonstration. */
+.home .hero { padding: clamp(24px,4dvh,48px) clamp(24px,4vw,64px); gap: clamp(28px,4vw,64px); }
+.home h1 { font-size: clamp(2rem,min(4.5vw,7dvh),4.2rem); }
+.offer-overview { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; min-width: 0; }
+.offer-card { display: block; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fffaf5f5; text-decoration: none; color: var(--ink); transition: border-color .2s,box-shadow .2s; }
+.offer-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px #172b4d10; }
+.offer-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.offer-card h2 { font-size: 1.16rem; letter-spacing: -.025em; margin: 10px 0; }
+.offer-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+.offer-card .offer-status { font-size: .65rem; text-transform: uppercase; letter-spacing: .06em; color: #89412d; font-weight: 700; }
+.offer-main { grid-column: 1/-1; padding: 26px; background: var(--ink); color: white; border-color: var(--ink); }
+.offer-main h2 { font-size: clamp(1.5rem,2.4vw,2rem); }
+.offer-main p { color: #e1e6ee; max-width: 390px; }
+.offer-main .offer-status { color: #f4bda8; }
+.offer-main .text-link { display: inline-block; color: #fff; margin-top: 18px; }
+.home .hero-copy > p:not(.eyebrow):not(.hero-label) { font-size: clamp(.95rem,1.8dvh,1.1rem); line-height: 1.65; }
+.home .services .service-grid { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.home .services .service-grid > article { grid-column: span 2; }
+.home .services .service-grid > article:nth-child(n+4) { grid-column: span 3; }
+.product-spotlight { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: 48px; align-items: center; padding: 36px; border: 1px solid var(--line); border-radius: 20px; background: #faf7f2; scroll-margin-top: calc(var(--header-height) + 24px); }
+.spotlight-copy h3 { font-size: clamp(1.7rem,3vw,2.7rem); line-height: 1.15; letter-spacing: -.035em; margin: 16px 0 22px; }
+.spotlight-copy > p,.product-benefits { color: var(--muted); font-size: .95rem; line-height: 1.75; }
+.product-benefits { padding-left: 20px; }
+.product-benefits li { padding-left: 4px; margin: 16px 0; }
+.product-benefits strong { color: var(--ink); }
+.spotlight-copy .product-note { font-size: .8rem; }
+.home .product-spotlight .home-product { min-height: 0; padding: 0; background: none; max-width: 440px; }
+.home .product-spotlight .demo-chat { max-height: 440px; }
+.home .exploration-grid { grid-template-columns: repeat(2,minmax(0,1fr)); margin-top: 28px; }
+@media(max-width:1023px) {
+  .home .hero { grid-template-columns: 1fr; display: grid; }
+  .home .hero-copy { min-height: 0; padding: 0; }
+  .offer-overview { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .offer-main { grid-column: auto; grid-row: span 2; display: flex; flex-direction: column; justify-content: center; }
+  .home .services .service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .home .services .service-grid > article,.home .services .service-grid > article:nth-child(n+4) { grid-column: auto; }
+  .product-spotlight { grid-template-columns: 1fr; padding: 28px; gap: 32px; }
+}
+@media(max-width:560px) {
+  .home .hero { padding: 28px 20px; gap: 28px; }
+  .home h1 { font-size: clamp(2rem,8.8vw,3rem); margin-bottom: 18px; }
+  .home .hero-copy > p:not(.eyebrow):not(.hero-label) { font-size: 1rem; }
+  .offer-overview { grid-template-columns: 1fr; gap: 10px; }
+  .offer-main { grid-row: auto; }
+  .offer-card,.offer-main { padding: 20px; }
+  .offer-card:not(.offer-main) h2 { margin-block: 6px; }
+  .offer-card:not(.offer-main) p { font-size: .82rem; }
+  .home .services .service-grid,.home .exploration-grid { grid-template-columns: 1fr; }
+  .product-spotlight { padding: 20px; margin-inline: -8px; border-radius: 14px; }
+  .home .product-spotlight .demo-chat { padding: 14px 10px; max-height: 420px; }
+}
+@media(prefers-reduced-motion:reduce) { .offer-card { transition: none; } }
