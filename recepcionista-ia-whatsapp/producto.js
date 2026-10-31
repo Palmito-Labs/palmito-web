@@ -53,7 +53,7 @@ form.addEventListener('submit', async event => {
   try {
     const response = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }, signal: controller.signal });
     if (!response.ok) throw new Error('Submission failed');
-    formStatus.textContent = 'Solicitud recibida. Gracias por tu interés; contactaremos contigo por correo para valorar el piloto.';
+    formStatus.textContent = 'Solicitud recibida. Gracias por tu interés; contactaremos contigo por correo para atender tu consulta sobre el recepcionista IA.';
     form.reset();
   } catch {
     formStatus.textContent = 'No hemos podido confirmar el envío. Tus datos siguen aquí: puedes reintentarlo o escribir a hola@palmitolabs.com. Si ya lo enviaste, evita duplicar la solicitud.';
