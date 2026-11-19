@@ -5,12 +5,10 @@
 .home h1 span { display: block; }
 .hero-benefits { padding-left: 1.25em; margin: 18px 0 0; color: var(--ink); }
 .hero-benefits li + li { margin-top: 6px; }
-.about-profile { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 20px; }
 .home .service-details { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .home .service-details article { min-width: 0; }
 .home .service-details article > a:last-child { margin-top: auto; padding-top: 12px; }
-.home .event-agent { margin-top: 24px; grid-template-columns: minmax(0,1fr); }
-.home .services article[id], .event-agent article { scroll-margin-top: 24px; }
+.home .services article[id], #agente-eventos { scroll-margin-top: 24px; }
 .offer-overview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; min-width: 0; }
 .offer-card { display: block; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fffaf5f5; text-decoration: none; color: var(--ink); transition: background-color .2s,border-color .2s,box-shadow .2s; }
 .offer-card:is(:hover, :focus-visible) {
@@ -50,3 +48,59 @@
   .home .product-spotlight .demo-chat { padding: 14px 10px; max-height: 420px; }
 }
 @media(prefers-reduced-motion:reduce) { .offer-card { transition: none; } }
+
+.commerce-spotlight { margin-top: 24px; }
+.commerce-preview { margin: 0; min-width: 0; }
+.commerce-window {
+  overflow: hidden;
+  border: 1px solid #d5c9b5;
+  border-radius: 12px;
+  background: #fffaf0;
+  color: #29382d;
+}
+.commerce-browser {
+  padding: 8px 12px;
+  background: #eee5d5;
+  font-size: .75rem;
+  text-align: center;
+}
+.commerce-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 10px 14px;
+}
+.commerce-nav span { font-size: .75rem; }
+.commerce-cover {
+  padding: clamp(18px, 4vw, 36px) 14px;
+  background: #2c4939;
+  color: #fffaf0;
+  text-align: center;
+}
+.commerce-cover p { margin: 0 0 6px; font-size: .8rem; }
+.commerce-cover strong { display: block; font: 700 clamp(1.35rem, 3vw, 2rem)/1.1 Georgia, serif; }
+.commerce-catalog { padding: 14px; }
+.commerce-books {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.commerce-books li {
+  display: grid;
+  place-content: center;
+  min-height: 76px;
+  padding: 6px 4px;
+  border-radius: 2px 6px 6px 2px;
+  background: #efd8a8;
+  font: 700 clamp(.7rem, 1.3vw, 1rem)/1.2 Georgia, serif;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.commerce-books li:nth-child(2) { background: #cfe0d7; }
+.commerce-books li:nth-child(3) { background: #efd2c9; }
+.commerce-preview figcaption { margin-top: 8px; color: var(--muted); font-size: .8rem; }
