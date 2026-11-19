@@ -5,10 +5,22 @@
 .home h1 span { display: block; }
 .hero-benefits { padding-left: 1.25em; margin: 18px 0 0; color: var(--ink); }
 .hero-benefits li + li { margin-top: 6px; }
-.home .service-details { grid-template-columns: repeat(2,minmax(0,1fr)); }
-.home .service-details article { min-width: 0; }
-.home .service-details article > a:last-child { margin-top: auto; padding-top: 12px; }
-.home .services :is(article[id], #asistente, #web-comercio, #agente-eventos) { scroll-margin-top: calc(var(--header-height) + 24px); }
+.home .services-heading { max-width: none; margin: 0; }
+.home .service-chapter {
+  display: grid;
+  align-content: center;
+  min-height: calc(var(--screen-height) - var(--header-height));
+  padding-block: clamp(24px, 5dvh, 64px);
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: -24px;
+}
+.home .service-chapter:nth-of-type(even) { background: var(--bg); }
+.service-copy { width: min(100%, 720px); margin-inline: auto; }
+.service-copy h3:first-child { margin-top: 0; }
+@media (max-width: 1023px) {
+  .side-nav-ready .home .service-chapter { scroll-margin-top: -16px; }
+}
 .offer-overview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; min-width: 0; }
 .offer-card { display: block; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fffaf5f5; text-decoration: none; color: var(--ink); transition: background-color .2s,border-color .2s,box-shadow .2s; }
 .offer-card:is(:hover, :focus-visible) {
@@ -22,7 +34,7 @@
 .offer-card h2 { font-size: 1.16rem; letter-spacing: -.025em; margin: 0 0 10px; }
 .offer-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
 .home .hero-copy > p:not(.eyebrow):not(.hero-label) { font-size: clamp(.95rem,1.8dvh,1.1rem); line-height: 1.65; }
-.product-spotlight { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: 48px; align-items: center; padding: 36px; border: 1px solid var(--line); border-radius: 20px; background: #faf7f2; scroll-margin-top: calc(var(--header-height) + 24px); }
+.product-spotlight { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: 48px; align-items: center; padding: 36px; border: 1px solid var(--line); border-radius: 20px; background: #faf7f2; }
 .spotlight-copy h3 { font-size: clamp(1.7rem,3vw,2.7rem); line-height: 1.15; letter-spacing: -.035em; margin: 16px 0 22px; }
 .spotlight-copy > p,.product-benefits { color: var(--muted); font-size: .95rem; line-height: 1.75; }
 .product-benefits { padding-left: 20px; }
@@ -41,7 +53,7 @@
   .home .hero { padding: 28px 20px; gap: 28px; }
   .home h1 { font-size: clamp(2rem,8.8vw,3rem); margin-bottom: 18px; }
   .home .hero-copy > p:not(.eyebrow):not(.hero-label) { font-size: 1rem; }
-  .offer-overview, .home .service-details { grid-template-columns: 1fr; }
+  .offer-overview { grid-template-columns: 1fr; }
   .offer-overview { gap: 10px; }
   .offer-card { padding: 20px; }
   .product-spotlight { padding: 20px; margin-inline: -8px; border-radius: 14px; }
@@ -49,7 +61,6 @@
 }
 @media(prefers-reduced-motion:reduce) { .offer-card { transition: none; } }
 
-.home .services > .product-spotlight + * { margin-top: 24px; }
 .commerce-preview {
   display: block;
   overflow: hidden;
