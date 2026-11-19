@@ -8,7 +8,7 @@
 .home .service-details { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .home .service-details article { min-width: 0; }
 .home .service-details article > a:last-child { margin-top: auto; padding-top: 12px; }
-.home .services article[id], #agente-eventos { scroll-margin-top: 24px; }
+.home .services :is(article[id], #asistente, #web-comercio, #agente-eventos) { scroll-margin-top: calc(var(--header-height) + 24px); }
 .offer-overview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; min-width: 0; }
 .offer-card { display: block; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fffaf5f5; text-decoration: none; color: var(--ink); transition: background-color .2s,border-color .2s,box-shadow .2s; }
 .offer-card:is(:hover, :focus-visible) {
@@ -49,7 +49,7 @@
 }
 @media(prefers-reduced-motion:reduce) { .offer-card { transition: none; } }
 
-.commerce-spotlight { margin-top: 24px; }
+.home .services > .product-spotlight + * { margin-top: 24px; }
 .commerce-preview {
   display: block;
   overflow: hidden;

@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="/screens.css?v=2">
 <link rel="stylesheet" href="/photography.css?v=1">
 <link rel="stylesheet" href="/contact.css?v=2">
-<link rel="stylesheet" href="/offer.css?v=7">
+<link rel="stylesheet" href="/offer.css?v=8">
 </head>
   <body class="home">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -49,11 +49,12 @@
 <a class="side-brand" autofocus href="/" aria-label="Palmito Labs, inicio"><img src="/assets/logo-final/palmito-labs-navigation-light.svg" alt="Palmito Labs" width="740" height="190"></a>
 <p class="side-intro">Desarrollamos software a medida desde Valencia para empresas de toda España.</p>
 <nav class="side-links" aria-label="Navegación principal"><a href="/#quienes-somos">El estudio</a>
-<a href="/#servicios">Servicios</a>
-<div class="menu-products"><a href="/#productos">Productos</a>
-<ul class="product-subnav" aria-label="Productos de Palmito Labs">
-<li><a href="/#asistente">Agentes con IA</a></li>
-<li><a href="/#web-comercio">Diseño web a medida</a></li>
+<div><a href="/#servicios">Servicios</a>
+<ul class="product-subnav" aria-label="Servicios de Palmito Labs">
+<li><a href="/#desarrollo-web">Desarrollo web</a></li>
+<li><a href="/#automatizacion-ia">Automatización con IA</a></li>
+<li><a href="/#usabilidad">Análisis de usabilidad</a></li>
+<li><a href="/#apps">Apps</a></li>
 </ul></div>
 <a class="nav-contact" href="/#contacto">Contacto</a></nav>
 </div>
@@ -69,10 +70,10 @@
           height="101"
         >
       </a>
-      <nav class="site-nav" aria-label="Navegación principal"><a href="/#quienes-somos">El estudio</a><a href="/#servicios">Servicios</a><a href="/#productos">Productos</a><a class="nav-contact" href="/#contacto">Contacto</a></nav>
+      <nav class="site-nav" aria-label="Navegación principal"><a href="/#quienes-somos">El estudio</a><a href="/#servicios">Servicios</a><a class="nav-contact" href="/#contacto">Contacto</a></nav>
       <details class="mobile-menu">
         <summary>Menú <svg class="nav-fan" viewBox="20 95 280 180" fill="none" aria-hidden="true"><defs><clipPath id="final-fan-1-0" clipPathUnits="userSpaceOnUse"><polygon points="-600,-600 -397,-600 166,260 -600,260"/></clipPath><clipPath id="final-fan-1-1" clipPathUnits="userSpaceOnUse"><polygon points="-397,-600 148,-600 166,260"/></clipPath><clipPath id="final-fan-1-2" clipPathUnits="userSpaceOnUse"><polygon points="148,-600 646,-600 166,260"/></clipPath><clipPath id="final-fan-1-3" clipPathUnits="userSpaceOnUse"><polygon points="646,-600 1000,-600 1000,260 166,260"/></clipPath></defs><g class="fan-turn"><g class="fan-piece" style="--dx:-22px;--dy:9px;--tilt:-18deg"><animateTransform attributeName="transform" type="rotate" values="0 166 246;55 166 246;0 166 246" keyTimes="0;.42;1" dur="700ms" begin="indefinite" calcMode="spline" keySplines=".4 0 .2 1;.2 .7 .2 1" fill="remove"/><image href="/assets/logo-final/png/palmito-labs-isotype-transparent.png" width="512" height="512" clip-path="url(#final-fan-1-0)"/></g><g class="fan-piece" style="--dx:-8px;--dy:-18px;--tilt:-6deg"><animateTransform attributeName="transform" type="rotate" values="0 166 246;18 166 246;0 166 246" keyTimes="0;.42;1" dur="700ms" begin="indefinite" calcMode="spline" keySplines=".4 0 .2 1;.2 .7 .2 1" fill="remove"/><image href="/assets/logo-final/png/palmito-labs-isotype-transparent.png" width="512" height="512" clip-path="url(#final-fan-1-1)"/></g><g class="fan-piece" style="--dx:8px;--dy:-18px;--tilt:6deg"><animateTransform attributeName="transform" type="rotate" values="0 166 246;-18 166 246;0 166 246" keyTimes="0;.42;1" dur="700ms" begin="indefinite" calcMode="spline" keySplines=".4 0 .2 1;.2 .7 .2 1" fill="remove"/><image href="/assets/logo-final/png/palmito-labs-isotype-transparent.png" width="512" height="512" clip-path="url(#final-fan-1-2)"/></g><g class="fan-piece" style="--dx:22px;--dy:9px;--tilt:18deg"><animateTransform attributeName="transform" type="rotate" values="0 166 246;-55 166 246;0 166 246" keyTimes="0;.42;1" dur="700ms" begin="indefinite" calcMode="spline" keySplines=".4 0 .2 1;.2 .7 .2 1" fill="remove"/><image href="/assets/logo-final/png/palmito-labs-isotype-transparent.png" width="512" height="512" clip-path="url(#final-fan-1-3)"/></g></g></svg></summary>
-        <nav aria-label="Navegación móvil"><a href="/#quienes-somos">El estudio</a><a href="/#servicios">Servicios</a><a href="/#productos">Productos</a><a class="nav-contact" href="/#contacto">Contacto</a></nav>
+        <nav aria-label="Navegación móvil"><a href="/#quienes-somos">El estudio</a><a href="/#servicios">Servicios</a><a class="nav-contact" href="/#contacto">Contacto</a></nav>
       </details>
     </header>
 
@@ -121,52 +122,38 @@
       </section>
 
       <section class="section services" id="servicios" aria-labelledby="services-title">
-        <div class="section-heading">
+        <div class="section-heading" id="productos">
           <h2 id="services-title">Servicios de desarrollo de software</h2>
           <p>Definimos contigo qué necesita tu negocio y qué podemos construir para resolverlo.</p>
         </div>
-        <div class="service-grid service-details">
-          <article id="desarrollo-web">
-            <h3>Desarrollo Web</h3>
-            <p>Diseñamos y construimos sitios a medida, desde la estructura y la navegación hasta la identidad visual y la adaptación a móvil. Definimos contigo los contenidos, las funciones y la base técnica para que los buscadores puedan leer el sitio.</p>
-            <p>Esta web de Palmito Labs es un ejemplo de nuestro trabajo. La diseñamos y desarrollamos para explicar nuestros servicios. También puedes ver un <a class="text-link" href="#web-comercio">ejemplos de diseño web</a>.</p>
-            <a class="text-link" href="/?servicio=desarrollo-web#contacto">Consultar sobre desarrollo web <span aria-hidden="true">→</span></a>
-          </article>
-          <article id="automatizacion-ia">
-            <h3>Automatización con IA</h3>
-            <p>Diseñamos asistentes para atender consultas, gestionar citas y coordinar tareas y avisos de equipo. Revisamos la viabilidad de conectar cada flujo con tu sistema de gestión antes de definir el alcance.</p>
-            <p>Descubre qué podemos hacer con <a class="text-link" href="#asistente">agentes de IA a medida</a>.</p>
-            <a class="text-link" href="/?servicio=automatizacion-ia#contacto">Consultar sobre automatización <span aria-hidden="true">→</span></a>
-          </article>
-          <article id="usabilidad">
-            <h3>Análisis de usabilidad</h3>
-            <p>Revisamos cómo se orientan tus usuarios, si entienden los mensajes y qué ocurre al completar tareas como reservar, comprar o rellenar un formulario. Identificamos obstáculos y proponemos mejoras priorizadas.</p>
-            <p>Puede interesarte si tienes una web o aplicación donde los usuarios se pierden, abandonan procesos o necesitan ayuda para terminar una tarea.</p>
-            <a class="text-link" href="/?servicio=usabilidad#contacto">Solicitar un análisis de usabilidad <span aria-hidden="true">→</span></a>
-          </article>
-          <article id="apps">
-            <h3>Apps</h3>
-            <p>Partimos de la idea, definimos quién va a usar la aplicación y qué necesita hacer, y acordamos las funciones de una primera versión. Podemos probar un prototipo contigo antes de desarrollar, validar y ajustar el producto.</p>
-            <p><strong>Ejemplo ilustrativo.</strong> Una app donde los técnicos de una empresa de mantenimiento consultan sus visitas, registran materiales y dejan constancia de las tareas realizadas. Podría interesar a negocios con equipos de campo que coordinan el trabajo entre llamadas y hojas de cálculo.</p>
-            <a class="text-link" href="/?servicio=apps#contacto">Plantear una idea de app <span aria-hidden="true">→</span></a>
-          </article>
-        </div>
-      </section>
+        <article class="product-spotlight" id="desarrollo-web" aria-labelledby="commerce-title">
+          <div class="spotlight-copy" id="web-comercio">
+            <h3 id="commerce-title">Desarrollo web a medida</h3>
+            <p>Diseñamos webs adaptadas a móvil con la navegación, los contenidos y las funciones que necesita tu negocio. La propia web de Palmito Labs es un ejemplo, y puedes abrir dos demos a tamaño completo.</p>
+            <p>Podemos incorporar un catálogo, solicitudes de cita o presupuesto y adaptar la web cuando cambien tus servicios. Acordamos contigo el alcance y revisamos las integraciones que hagan falta.</p>
+            <a class="button button-primary" href="/?servicio=desarrollo-web#contacto">Consultar sobre mi web</a>
+          </div>
+          <div class="commerce-examples" role="group" aria-label="Ejemplos de webs a tamaño completo">
+            <a class="commerce-preview" href="/demo-clinica/">
+              <img src="/demo-clinica/consulta.webp" width="1200" height="800" loading="lazy" alt="">
+              <span>Abrir demo de clínica estética <span aria-hidden="true">↗</span></span>
+            </a>
+            <a class="commerce-preview" href="/demo-taller/">
+              <img src="/demo-taller/taller.webp" width="1200" height="800" loading="lazy" alt="">
+              <span>Abrir demo de taller mecánico <span aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+        </article>
 
-      <section class="section products-section" id="productos" aria-labelledby="products-title">
-        <div class="section-heading">
-          <h2 id="products-title">Productos</h2>
-          <p>Ejemplos de lo que podemos desarrollar para tu negocio.</p>
-        </div>
-        <article class="product-spotlight" id="asistente" aria-labelledby="agents-title">
-          <div class="spotlight-copy">
-            <h3 id="agents-title">Agentes con IA a medida</h3>
+        <article class="product-spotlight" id="automatizacion-ia" aria-labelledby="agents-title">
+          <div class="spotlight-copy" id="asistente">
+            <h3 id="agents-title">Automatización y agentes con IA</h3>
             <p>Diseñamos asistentes que siguen las reglas de tu negocio y pasan la conversación o la tarea a una persona cuando hace falta.</p>
             <ul class="product-benefits">
               <li><strong>Recepción y citas.</strong> Responder consultas, recoger preferencias y registrar solicitudes, como en el ejemplo por WhatsApp.</li>
               <li id="agente-eventos"><strong>Gestión de eventos.</strong> Resolver dudas del programa, canalizar inscripciones y derivar incidencias al equipo organizador. La demostración de este caso se realiza bajo solicitud.</li>
             </ul>
-            <p>Podemos adaptar el canal, los datos que se recogen y los avisos. Si el flujo necesita conectarse con tus herramientas, revisamos la viabilidad antes de definir el alcance.</p>
+            <p>Podemos adaptar el canal, los datos que se recogen y los avisos, o automatizar tareas de coordinación del equipo. Si el flujo necesita conectarse con tus herramientas, revisamos la viabilidad antes de definir el alcance.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="/?servicio=automatizacion-ia#contacto">Consultar sobre agentes con IA</a>
               <a class="text-link" href="/recepcionista-ia-whatsapp/#demo">Ver el ejemplo completo de citas <span aria-hidden="true">→</span></a>
@@ -202,24 +189,20 @@
         </aside>
         </article>
 
-        <article class="product-spotlight commerce-spotlight" id="web-comercio" aria-labelledby="commerce-title">
-          <div class="spotlight-copy">
-            <h3 id="commerce-title">Diseño web a medida</h3>
-            <p>El diseño, los contenidos y las funciones se definen según tu negocio, tu marca y lo que tus clientes necesitan hacer en la web.</p>
-            <p>Podemos incorporar un catálogo, solicitudes de cita o presupuesto y adaptar la web cuando cambien tus servicios. Acordamos contigo el alcance y revisamos las integraciones que hagan falta.</p>
-            <a class="button button-primary" href="/?servicio=desarrollo-web#contacto">Consultar sobre mi web</a>
-          </div>
-          <div class="commerce-examples" role="group" aria-label="Ejemplos de webs a tamaño completo">
-            <a class="commerce-preview" href="/demo-clinica/">
-              <img src="/demo-clinica/consulta.webp" width="1200" height="800" loading="lazy" alt="">
-              <span>Abrir demo de clínica estética <span aria-hidden="true">↗</span></span>
-            </a>
-            <a class="commerce-preview" href="/demo-taller/">
-              <img src="/demo-taller/taller.webp" width="1200" height="800" loading="lazy" alt="">
-              <span>Abrir demo de taller mecánico <span aria-hidden="true">↗</span></span>
-            </a>
-          </div>
-        </article>
+        <div class="service-grid service-details">
+          <article id="usabilidad">
+            <h3>Análisis de usabilidad</h3>
+            <p>Revisamos cómo se orientan tus usuarios, si entienden los mensajes y qué ocurre al completar tareas como reservar, comprar o rellenar un formulario. Identificamos obstáculos y proponemos mejoras priorizadas.</p>
+            <p>Puede interesarte si tienes una web o aplicación donde los usuarios se pierden, abandonan procesos o necesitan ayuda para terminar una tarea.</p>
+            <a class="text-link" href="/?servicio=usabilidad#contacto">Solicitar un análisis de usabilidad <span aria-hidden="true">→</span></a>
+          </article>
+          <article id="apps">
+            <h3>Apps</h3>
+            <p>Partimos de la idea, definimos quién va a usar la aplicación y qué necesita hacer, y acordamos las funciones de una primera versión. Podemos probar un prototipo contigo antes de desarrollar, validar y ajustar el producto.</p>
+            <p><strong>Ejemplo ilustrativo.</strong> Una app donde los técnicos de una empresa de mantenimiento consultan sus visitas, registran materiales y dejan constancia de las tareas realizadas. Podría interesar a negocios con equipos de campo que coordinan el trabajo entre llamadas y hojas de cálculo.</p>
+            <a class="text-link" href="/?servicio=apps#contacto">Plantear una idea de app <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
       </section>
 
       <section class="section contact-section" id="contacto" aria-labelledby="contact-title">
@@ -259,9 +242,8 @@
       </div>
       <div class="footer-column">
         <strong>Palmito Labs</strong>
-        <a href="#productos">Productos</a>
-        <a href="#asistente">Agentes con IA</a>
-        <a href="#web-comercio">Diseño web a medida</a>
+        <a href="#automatizacion-ia">Automatización con IA</a>
+        <a href="#desarrollo-web">Desarrollo web a medida</a>
         <a href="#servicios">Servicios de desarrollo de software</a>
         <a href="/#quienes-somos">El estudio</a>
       </div>
