@@ -14,36 +14,26 @@ if ([...service.options].some(option => option.value === requestedService)) {
 
 const submit = form.querySelector('button[type="submit"]');
 const formStatus = document.querySelector('#form-status');
-let endpoint;
-if (form.dataset.endpoint) {
-  try {
-    const url = new URL(form.dataset.endpoint);
-    if (url.protocol === 'https:') endpoint = url.href;
-  } catch {
-    // An invalid configuration leaves the form disabled.
-  }
-}
-
-if (endpoint) {
-  submit.disabled = false;
-  formStatus.textContent = '';
-}
+const endpoint = form.dataset.endpoint;
+submit.disabled = false;
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
-  if (!endpoint || submit.disabled) return;
+  if (submit.disabled) return;
+  const fields = Object.fromEntries(new FormData(form));
+  fields.servicio = service.selectedOptions[0].textContent.trim();
 
   submit.disabled = true;
   formStatus.textContent = 'Enviando solicitud…';
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' },
+      body: JSON.stringify(fields),
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       signal: AbortSignal.timeout(15000)
     });
     const result = await response.json();
-    if (!response.ok || result.ok !== true) throw new Error('Submission failed');
+    if (!response.ok || result.success !== true) throw new Error('Submission failed');
     form.reset();
     formStatus.textContent = 'Solicitud recibida. Te responderemos por correo.';
   } catch {

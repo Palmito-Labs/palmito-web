@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="brand.css?v=2">
     <link rel="stylesheet" href="whatsapp.css?v=1">
     <link rel="stylesheet" href="home.css?v=5">
-    <script src="home.js?v=4" defer></script>
+    <script src="home.js?v=5" defer></script>
     <link rel="canonical" href="https://palmitolabs.es/">
     <meta property="og:url" content="https://palmitolabs.es/">
     <meta property="og:type" content="website">
@@ -305,9 +305,12 @@
           <h2 id="contact-title">Solicita información o presupuesto</h2>
           <p>Cuéntanos qué quieres desarrollar o qué tarea te gustaría resolver.</p>
         </div>
-        <form id="contact-form" data-endpoint="" method="post" aria-describedby="form-status">
+        <form id="contact-form" data-endpoint="https://api.web3forms.com/submit" method="post" aria-describedby="form-status">
+          <input type="hidden" name="access_key" value="d1708b7e-9515-4747-b347-afca5660a820">
+          <input type="hidden" name="subject" value="Nueva solicitud desde Palmito Labs">
+          <input type="checkbox" name="botcheck" hidden tabindex="-1" aria-hidden="true">
           <div class="form-grid">
-            <label>Nombre <input name="nombre" autocomplete="name" required maxlength="100"></label>
+            <label>Nombre <input name="name" autocomplete="name" required maxlength="100"></label>
             <label>Correo electrónico <input type="email" name="email" autocomplete="email" required maxlength="254"></label>
             <label>Empresa (opcional) <input name="empresa" autocomplete="organization" maxlength="150"></label>
             <label>Servicio
@@ -321,10 +324,10 @@
               </select>
             </label>
           </div>
-          <label>¿Qué necesitas? <textarea name="mensaje" rows="5" required maxlength="3000"></textarea></label>
-          <p>Los datos se usarán para responder a tu solicitud. Evita incluir información sensible o datos de clientes.</p>
+          <label>¿Qué necesitas? <textarea name="message" rows="5" required maxlength="3000"></textarea></label>
+          <p>Usamos Web3Forms para recibir tu solicitud y poder responderte. Evita incluir información sensible o datos de clientes.</p>
           <button class="button button-primary" type="submit" disabled>Enviar solicitud</button>
-          <p id="form-status" role="status">El envío todavía no está habilitado.</p>
+          <p id="form-status" role="status"></p>
           <noscript><p>El formulario requiere JavaScript para enviar la solicitud.</p></noscript>
         </form>
       </section>
