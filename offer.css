@@ -6,7 +6,6 @@
 .hero-benefits { padding-left: 1.25em; margin: 18px 0 0; color: var(--ink); }
 .hero-benefits li + li { margin-top: 6px; }
 .about-profile { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 20px; }
-.about-profile h3 { margin: 0 0 6px; }
 .home .service-details { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .home .service-details article { min-width: 0; }
 .home .service-details article > a:last-child { margin-top: auto; padding-top: 12px; }
