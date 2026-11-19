@@ -1,6 +1,7 @@
 /* Start with the studio's offer; give the main product its own demonstration. */
 .home .hero { padding: clamp(24px,4dvh,48px) clamp(24px,4vw,64px); gap: clamp(28px,4vw,64px); }
 .home h1 { font-size: clamp(2rem,min(4vw,6.5dvh),3.8rem); line-height: 1.08; overflow-wrap: anywhere; }
+.home h1 strong { display: block; font-size: 1.32em; font-weight: inherit; line-height: 1.02; margin-bottom: .14em; }
 .home h1 span { display: block; }
 .hero-benefits { padding-left: 1.25em; margin: 18px 0 0; color: var(--ink); }
 .hero-benefits li + li { margin-top: 6px; }
@@ -12,8 +13,14 @@
 .home .event-agent { margin-top: 24px; grid-template-columns: minmax(0,1fr); }
 .home .services article[id], .event-agent article { scroll-margin-top: 24px; }
 .offer-overview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; min-width: 0; }
-.offer-card { display: block; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fffaf5f5; text-decoration: none; color: var(--ink); transition: border-color .2s,box-shadow .2s; }
-.offer-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px #172b4d10; }
+.offer-card { display: block; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: #fffaf5f5; text-decoration: none; color: var(--ink); transition: background-color .2s,border-color .2s,box-shadow .2s; }
+.offer-card:is(:hover, :focus-visible) {
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: var(--paper);
+  box-shadow: 0 8px 24px #172b4d24;
+}
+.offer-card:is(:hover, :focus-visible) p { color: var(--paper); }
 .offer-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .offer-card h2 { font-size: 1.16rem; letter-spacing: -.025em; margin: 0 0 10px; }
 .offer-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
