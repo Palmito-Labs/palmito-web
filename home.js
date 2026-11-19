@@ -52,3 +52,55 @@ form.addEventListener('submit', async event => {
     submit.disabled = false;
   }
 });
+
+const chat = document.querySelector('#automatizacion-ia .demo-chat');
+const messages = [...chat.querySelectorAll('.bubble')];
+const playback = document.querySelector('.chat-playback');
+const record = document.querySelector('#automatizacion-ia .home-record');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let nextMessage = 0;
+let timer;
+
+function showMessage() {
+  messages[nextMessage++].hidden = false;
+  chat.scrollTop = chat.scrollHeight;
+  if (nextMessage === messages.length) {
+    timer = undefined;
+    record.hidden = false;
+    playback.textContent = 'Repetir conversación';
+    return;
+  }
+  timer = window.setTimeout(showMessage, 1500);
+}
+
+function startChat() {
+  messages.forEach(message => { message.hidden = true; });
+  record.hidden = true;
+  nextMessage = 0;
+  playback.textContent = 'Pausar conversación';
+  showMessage();
+}
+
+playback.addEventListener('click', () => {
+  if (timer !== undefined) {
+    window.clearTimeout(timer);
+    timer = undefined;
+    playback.textContent = 'Continuar conversación';
+  } else if (nextMessage === messages.length || nextMessage === 0) {
+    startChat();
+  } else {
+    playback.textContent = 'Pausar conversación';
+    showMessage();
+  }
+});
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting || entry.intersectionRatio < 0.35) return;
+    observer.disconnect();
+    if (reducedMotion.matches) return;
+    playback.hidden = false;
+    startChat();
+  }, { threshold: 0.35 });
+  observer.observe(chat);
+}

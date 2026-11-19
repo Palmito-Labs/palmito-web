@@ -82,37 +82,67 @@
   .commerce-examples { grid-template-columns: 1fr; }
 }
 
+.home .product-spotlight .demo-chat { min-height: clamp(180px, 47dvh, 440px); overflow-anchor: none; }
+.home-product [hidden] { display: none !important; }
+.chat-playback { width: fit-content; margin: 12px 0; padding: 0; border: 0; background: none; color: var(--ink); cursor: pointer; font: inherit; font-weight: 650; }
+
 .service-example {
   min-width: 0;
   margin: 0;
-  padding: clamp(16px, 2.6vw, 38px);
+  padding: clamp(16px, 2.6vw, 34px);
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--surface);
 }
-.example-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 4px 16px;
-}
-.example-header strong { font-size: clamp(1.18rem, 2vw, 1.6rem); line-height: 1.2; }
-.example-header span, .service-example figcaption { color: var(--muted); font-size: .82rem; }
-.service-example figcaption { margin-top: 18px; }
-.audit-path, .app-agenda { list-style: none; padding: 0; margin: 20px 0 0; }
-.audit-path { display: flex; flex-wrap: wrap; gap: 6px; }
-.audit-path li { flex: 1 1 auto; padding: 7px 9px; border-radius: 6px; background: var(--paper); font-size: .8rem; text-align: center; }
-.audit-path .audit-step { background: var(--brand); color: var(--paper); }
+.example-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
+.example-header strong { font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.2; }
+.example-header span, .audit-task { color: var(--muted); font-size: .83rem; }
+.audit-task { margin: 11px 0 14px; }
+.audit-task strong { color: var(--ink); margin-right: 4px; }
+.audit-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.audit-screen { padding: clamp(10px, 1.4vw, 18px); border: 1px solid var(--line); border-radius: 10px; background: var(--paper); font-size: .85rem; }
+.audit-label { margin: 0 0 8px; color: var(--muted); font-size: .72rem; font-weight: 650; }
+.booking-date { display: flex; justify-content: space-between; gap: 4px; margin: 8px 0; padding: 6px; border: 1px solid var(--line); border-radius: 5px; text-align: center; }
+.booking-empty, .booking-next { margin: 0; padding: 7px; border-radius: 5px; background: #f5e7dd; color: #7d3f2c; }
+.booking-next { background: #e6efe9; color: #29543f; }
+.booking-action { display: inline-block; margin-top: 6px; color: var(--brand); font-weight: 700; text-decoration: underline; }
 .audit-findings { display: grid; gap: 8px; margin: 12px 0 0; }
-.audit-findings > div { padding: 12px 14px; border-left: 3px solid var(--accent); border-radius: 6px; background: var(--paper); }
-.audit-findings dt { font-size: .82rem; font-weight: 750; }
-.audit-findings dd { margin: 4px 0 0; color: var(--muted); font-size: .9rem; }
-.app-example { background: #e8eef5; }
-.app-agenda { display: grid; gap: 8px; }
-.app-agenda li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; padding: 12px; border-radius: 8px; background: var(--paper); }
-.app-agenda time { font-size: .83rem; font-weight: 750; font-variant-numeric: tabular-nums; }
-.app-agenda li div { flex: 1 1 11rem; min-width: 0; }
-.app-agenda li div span { display: block; color: var(--muted); font-size: .8rem; }
-.app-status { padding: 3px 8px; border-radius: 6px; background: #f6e8d9; color: #704726; font-size: .75rem; font-weight: 650; }
+.audit-findings > div { padding: 9px 12px; border-left: 3px solid var(--accent); border-radius: 6px; background: var(--paper); }
+.audit-findings dt { font-size: .8rem; font-weight: 750; }
+.audit-findings dd { margin: 4px 0 0; color: var(--muted); font-size: .85rem; }
+
+.app-example { display: grid; justify-items: center; gap: 12px; margin: 0; }
+.app-device {
+  width: min(100%, 310px);
+  overflow: hidden;
+  border: 6px solid #11213c;
+  border-radius: 32px;
+  background: #f4f7fc;
+  color: #172b4d;
+  box-shadow: 0 14px 30px #172b4d28;
+}
+.app-statusbar, .app-header, .app-tabs { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.app-statusbar { padding: 9px 17px 5px; font-size: .68rem; font-weight: 750; }
+.app-sensors { width: 48px; height: 12px; border-radius: 12px; background: #11213c; }
+.app-screen { padding: 5px 12px 12px; }
+.app-header { font-size: .78rem; font-weight: 700; }
+.app-avatar { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #e1e9f8; font-size: .65rem; }
+.app-date { margin: 5px 0 1px; color: #576478; font-size: .73rem; }
+.app-title { display: block; font-size: 1.52rem; line-height: 1.15; }
+.app-summary { display: grid; gap: 3px; margin-top: 9px; padding: 8px 10px; border-radius: 9px; background: #e1e9f8; font-size: .77rem; }
+.app-summary progress { width: 100%; height: 7px; accent-color: #3158a0; }
+.app-agenda { display: grid; gap: 6px; padding: 0; margin: 8px 0 0; list-style: none; }
+.app-agenda li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 8px; padding: 8px; border-radius: 8px; background: white; }
+.app-agenda time { grid-row: span 3; font-size: .75rem; font-weight: 750; font-variant-numeric: tabular-nums; }
+.app-agenda strong { font-size: .76rem; line-height: 1.25; }
+.app-location { color: #576478; font-size: .68rem; }
+.app-status { justify-self: start; padding: 1px 6px; border-radius: 6px; background: #f6e8d9; color: #704726; font-size: .65rem; font-weight: 650; }
 .app-status-done { background: #dcece4; color: #25533e; }
+.app-tabs { justify-content: space-around; padding: 7px 8px 10px; border-top: 1px solid #e1e9f8; background: white; }
+.app-tabs span { display: grid; justify-items: center; gap: 2px; font-size: .65rem; }
+.app-tabs svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.app-tab-current { color: #3158a0; font-weight: 750; }
+.app-example figcaption { color: var(--muted); font-size: .82rem; text-align: center; }
+@media (max-width: 355px) {
+  .audit-comparison { grid-template-columns: 1fr; }
+}

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="brand.css?v=2">
     <link rel="stylesheet" href="whatsapp.css?v=1">
     <link rel="stylesheet" href="home.css?v=5">
-    <script src="home.js?v=2" defer></script>
+    <script src="home.js?v=3" defer></script>
     <link rel="canonical" href="https://palmitolabs.es/">
     <meta property="og:url" content="https://palmitolabs.es/">
     <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="/screens.css?v=2">
 <link rel="stylesheet" href="/photography.css?v=1">
 <link rel="stylesheet" href="/contact.css?v=2">
-<link rel="stylesheet" href="/offer.css?v=11">
+<link rel="stylesheet" href="/offer.css?v=12">
 </head>
   <body class="home">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -187,7 +187,7 @@
   </div>
             </div>
             <div class="home-record"><span class="record-icon" aria-hidden="true">✓</span><div><strong>Citas agendadas · Ejemplo</strong><span>Manicura 17:00 · Pedicura 17:45</span></div><span class="record-state">Simulación</span></div>
-            <p class="home-demo-note">Desplázate dentro del chat para ver la cita y la promoción.</p>
+            <button class="text-link chat-playback" type="button" hidden>Pausar conversación</button>
             <p class="home-demo-note">Centro, disponibilidad y promoción ficticios. Sin reserva real. La confirmación automática requiere una configuración validada.</p>
           </aside>
           </div>
@@ -206,26 +206,30 @@
               <a class="button button-primary" href="/?servicio=usabilidad#contacto">Solicitar un análisis de usabilidad</a>
             </div>
             <figure class="service-example audit-example">
-              <div class="example-header">
-                <strong>Reserva de cita</strong>
-                <span>Ejemplo de revisión</span>
+              <figcaption class="example-header">
+                <strong>Auditoría de una reserva online</strong>
+                <span>Informe ilustrativo</span>
+              </figcaption>
+              <p class="audit-task"><strong>Tarea evaluada</strong> Encontrar la primera cita disponible en móvil.</p>
+              <div class="audit-comparison">
+                <div class="audit-screen">
+                  <p class="audit-label">Pantalla revisada</p>
+                  <strong>Elige un horario</strong>
+                  <p class="booking-date">‹ <span>Martes 17</span> ›</p>
+                  <p class="booking-empty">Sin horarios disponibles</p>
+                </div>
+                <div class="audit-screen">
+                  <p class="audit-label">Propuesta</p>
+                  <strong>Elige un horario</strong>
+                  <p class="booking-date">‹ <span>Martes 17</span> ›</p>
+                  <p class="booking-next">Próxima cita · Jueves 19, 10:30</p>
+                  <span class="booking-action">Ver horarios del jueves</span>
+                </div>
               </div>
-              <ol class="audit-path" aria-label="Pasos de una reserva">
-                <li>Servicio</li>
-                <li class="audit-step">Horario</li>
-                <li>Confirmación</li>
-              </ol>
               <dl class="audit-findings">
-                <div>
-                  <dt>Hallazgo</dt>
-                  <dd>Si el día elegido está completo, el calendario queda vacío y cuesta encontrar el siguiente hueco.</dd>
-                </div>
-                <div>
-                  <dt>Cambio propuesto</dt>
-                  <dd>Mostrar la próxima cita disponible y permitir saltar directamente a ese día.</dd>
-                </div>
+                <div><dt>Hallazgo · Prioridad alta</dt><dd>Con el día completo, hay que avanzar fecha a fecha para encontrar un hueco.</dd></div>
+                <div><dt>Cómo validar el cambio</dt><dd>Repetir la tarea y comprobar si se encuentra la primera cita sin recorrer el calendario.</dd></div>
               </dl>
-              <figcaption>Ejemplo ilustrativo de cómo documentamos una dificultad y su posible solución.</figcaption>
             </figure>
           </div>
         </section>
@@ -242,16 +246,26 @@
               </ul>
               <a class="button button-primary" href="/?servicio=apps#contacto">Plantear una idea de app</a>
             </div>
-            <figure class="service-example app-example">
-              <div class="example-header">
-                <strong>Visitas de mantenimiento</strong>
-                <span>Ejemplo de aplicación</span>
+            <figure class="app-example">
+              <div class="app-device" aria-label="Maqueta de una aplicación móvil de mantenimiento">
+                <div class="app-statusbar" aria-hidden="true"><span>9:41</span><span class="app-sensors"></span><span>5G ▰</span></div>
+                <div class="app-screen">
+                  <div class="app-header"><span>Parte de servicio</span><span class="app-avatar" aria-label="Perfil de ejemplo">LM</span></div>
+                  <p class="app-date">Martes, 17 de noviembre</p>
+                  <strong class="app-title">Mi agenda</strong>
+                  <div class="app-summary"><span>Visitas de hoy</span><strong>1 de 2 completadas</strong><progress value="1" max="2" aria-label="Visitas completadas"></progress></div>
+                  <ol class="app-agenda" aria-label="Agenda de un técnico">
+                    <li><time datetime="09:00">09:00</time><strong>Revisión de climatización</strong><span class="app-location">Edificio Alameda</span><span class="app-status app-status-done">Finalizada</span></li>
+                    <li><time datetime="11:30">11:30</time><strong>Mantenimiento preventivo</strong><span class="app-location">Centro logístico Norte</span><span class="app-status">En curso</span></li>
+                  </ol>
+                </div>
+                <div class="app-tabs" aria-label="Secciones de la maqueta">
+                  <span class="app-tab-current"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 3v6m8-6v6M4 11h16"/></svg>Agenda</span>
+                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>Partes</span>
+                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16v12H4zM3 4h18v4H3zM9 12h6"/></svg>Materiales</span>
+                </div>
               </div>
-              <ol class="app-agenda" aria-label="Agenda de un técnico">
-                <li><time datetime="09:00">09:00</time><div><strong>Revisión de climatización</strong><span>Parte de trabajo registrado</span></div><span class="app-status app-status-done">Finalizada</span></li>
-                <li><time datetime="11:30">11:30</time><div><strong>Mantenimiento preventivo</strong><span>Materiales pendientes de anotar</span></div><span class="app-status">En curso</span></li>
-              </ol>
-              <figcaption>Un técnico consulta su agenda, anota materiales y deja constancia del trabajo desde el móvil.</figcaption>
+              <figcaption>Maqueta de una app para equipos de mantenimiento.</figcaption>
             </figure>
           </div>
         </section>

@@ -38,5 +38,15 @@ pause.addEventListener('click', () => {
 });
 reduced.addEventListener('change', () => { if (reduced.matches) complete(); });
 document.addEventListener('visibilitychange', () => { if (document.hidden && running) pause.click(); });
+if ('IntersectionObserver' in window && !reduced.matches) {
+  const observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting || entry.intersectionRatio < 0.35) return;
+    observer.disconnect();
+    play.click();
+  }, { threshold: 0.35 });
+  observer.observe(chat);
+  play.addEventListener('click', () => observer.disconnect(), { once: true });
+  read.addEventListener('click', () => observer.disconnect(), { once: true });
+}
 // Close the mobile menu after choosing an in-page destination.
 document.querySelectorAll('.mobile-menu nav a').forEach(link => link.addEventListener('click', () => { link.closest('details').open = false; }));
