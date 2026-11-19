@@ -104,3 +104,20 @@ if ('IntersectionObserver' in window) {
   }, { threshold: 0.35 });
   observer.observe(chat);
 }
+
+const appTabs = document.querySelector('.app-tabs');
+const appScreen = document.querySelector('.app-screen');
+const appButtons = [...appTabs.querySelectorAll('button')];
+appTabs.hidden = false;
+
+appTabs.addEventListener('click', event => {
+  const selected = event.target.closest('button');
+  if (!appButtons.includes(selected)) return;
+
+  appButtons.forEach(button => {
+    const active = button === selected;
+    button.setAttribute('aria-pressed', String(active));
+    document.getElementById(button.getAttribute('aria-controls')).hidden = !active;
+  });
+  appScreen.scrollTop = 0;
+});

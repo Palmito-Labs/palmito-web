@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="brand.css?v=2">
     <link rel="stylesheet" href="whatsapp.css?v=1">
     <link rel="stylesheet" href="home.css?v=5">
-    <script src="home.js?v=3" defer></script>
+    <script src="home.js?v=4" defer></script>
     <link rel="canonical" href="https://palmitolabs.es/">
     <meta property="og:url" content="https://palmitolabs.es/">
     <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="/screens.css?v=2">
 <link rel="stylesheet" href="/photography.css?v=1">
 <link rel="stylesheet" href="/contact.css?v=2">
-<link rel="stylesheet" href="/offer.css?v=12">
+<link rel="stylesheet" href="/offer.css?v=13">
 </head>
   <body class="home">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -247,25 +247,49 @@
               <a class="button button-primary" href="/?servicio=apps#contacto">Plantear una idea de app</a>
             </div>
             <figure class="app-example">
-              <div class="app-device" aria-label="Maqueta de una aplicación móvil de mantenimiento">
-                <div class="app-statusbar" aria-hidden="true"><span>9:41</span><span class="app-sensors"></span><span>5G ▰</span></div>
-                <div class="app-screen">
-                  <div class="app-header"><span>Parte de servicio</span><span class="app-avatar" aria-label="Perfil de ejemplo">LM</span></div>
-                  <p class="app-date">Martes, 17 de noviembre</p>
-                  <strong class="app-title">Mi agenda</strong>
-                  <div class="app-summary"><span>Visitas de hoy</span><strong>1 de 2 completadas</strong><progress value="1" max="2" aria-label="Visitas completadas"></progress></div>
-                  <ol class="app-agenda" aria-label="Agenda de un técnico">
-                    <li><time datetime="09:00">09:00</time><strong>Revisión de climatización</strong><span class="app-location">Edificio Alameda</span><span class="app-status app-status-done">Finalizada</span></li>
-                    <li><time datetime="11:30">11:30</time><strong>Mantenimiento preventivo</strong><span class="app-location">Centro logístico Norte</span><span class="app-status">En curso</span></li>
-                  </ol>
+              <div class="app-device" role="group" aria-label="Demo de la aplicación de mantenimiento">
+                <div class="app-statusbar" aria-hidden="true">
+                  <span>9:41</span><span class="app-sensors"></span>
+                  <svg viewBox="0 0 50 16" width="48" height="16" fill="none"><path d="M2 12v2m4-5v5m4-8v8m4-11v11M20 5a10 10 0 0 1 14 0m-11 3a6 6 0 0 1 8 0m-5 3h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="38" y="4" width="10" height="8" rx="2" stroke="currentColor"/><path d="M40 6h6v4h-6zM49 7h1v2h-1z" fill="currentColor"/></svg>
                 </div>
-                <div class="app-tabs" aria-label="Secciones de la maqueta">
-                  <span class="app-tab-current"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 3v6m8-6v6M4 11h16"/></svg>Agenda</span>
-                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>Partes</span>
-                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16v12H4zM3 4h18v4H3zM9 12h6"/></svg>Materiales</span>
+                <div class="app-screen" tabindex="0" aria-label="Contenido de la aplicación">
+                  <div class="app-header"><strong>Ruta de servicio</strong><span class="app-avatar" aria-label="Perfil de Lucía Martín">LM</span></div>
+                  <section class="app-panel" id="app-agenda">
+                    <p class="app-date">Martes, 17 de noviembre</p>
+                    <h4>Mi agenda</h4>
+                    <div class="app-summary">
+                      <span>Visitas de hoy</span><strong>1 de 3 completadas</strong>
+                      <progress value="1" max="3" aria-label="Visitas completadas"></progress>
+                    </div>
+                    <ol class="app-agenda">
+                      <li><time datetime="09:00">09:00</time><div><strong>Revisión de climatización</strong><span>Edificio Alameda</span></div><span class="app-status app-status-done">Finalizada</span></li>
+                      <li><time datetime="11:30">11:30</time><div><strong>Mantenimiento preventivo</strong><span>Centro logístico Norte</span></div><span class="app-status app-status-active">En curso</span></li>
+                      <li><time datetime="15:00">15:00</time><div><strong>Revisión eléctrica</strong><span>Oficinas del Parque</span></div><span class="app-status">Pendiente</span></li>
+                    </ol>
+                  </section>
+                  <section class="app-panel" id="app-partes" hidden>
+                    <h4>Partes de trabajo</h4>
+                    <div class="app-detail"><span>17 de noviembre · 09:00</span><strong>Revisión de climatización</strong><p>Filtros revisados y equipo comprobado. La unidad queda operativa.</p><span class="app-status app-status-done">Parte cerrado</span></div>
+                    <div class="app-detail"><span>17 de noviembre · 11:30</span><strong>Mantenimiento preventivo</strong><p>Pendiente de registrar los materiales utilizados.</p><span class="app-status app-status-active">Borrador</span></div>
+                  </section>
+                  <section class="app-panel" id="app-materiales" hidden>
+                    <h4>Materiales</h4>
+                    <p class="app-date">Inventario del vehículo</p>
+                    <ul class="app-inventory">
+                      <li><strong>Filtros de aire</strong><span>4 uds.</span></li>
+                      <li><strong>Fusibles de 10 A</strong><span>8 uds.</span></li>
+                      <li><strong>Cinta aislante</strong><span>2 rollos</span></li>
+                    </ul>
+                  </section>
                 </div>
+                <nav class="app-tabs" aria-label="Pantallas de la demo" hidden>
+                  <button type="button" aria-controls="app-agenda" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 3v6m8-6v6M4 11h16"/></svg>Agenda</button>
+                  <button type="button" aria-controls="app-partes" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>Partes</button>
+                  <button type="button" aria-controls="app-materiales" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16v12H4zM3 4h18v4H3zM9 12h6"/></svg>Materiales</button>
+                </nav>
+                <div class="app-home-bar" aria-hidden="true"></div>
               </div>
-              <figcaption>Maqueta de una app para equipos de mantenimiento.</figcaption>
+              <figcaption>Demo interactiva de una app de mantenimiento.</figcaption>
             </figure>
           </div>
         </section>
