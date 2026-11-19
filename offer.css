@@ -50,57 +50,14 @@
 @media(prefers-reduced-motion:reduce) { .offer-card { transition: none; } }
 
 .commerce-spotlight { margin-top: 24px; }
-.commerce-preview { margin: 0; min-width: 0; }
-.commerce-window {
+.commerce-preview {
+  display: block;
   overflow: hidden;
-  border: 1px solid #d5c9b5;
+  border: 1px solid var(--line);
   border-radius: 12px;
-  background: #fffaf0;
-  color: #29382d;
+  background: var(--paper);
+  text-decoration: none;
 }
-.commerce-browser {
-  padding: 8px 12px;
-  background: #eee5d5;
-  font-size: .75rem;
-  text-align: center;
-}
-.commerce-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px 12px;
-  padding: 10px 14px;
-}
-.commerce-nav span { font-size: .75rem; }
-.commerce-cover {
-  padding: clamp(18px, 4vw, 36px) 14px;
-  background: #2c4939;
-  color: #fffaf0;
-  text-align: center;
-}
-.commerce-cover p { margin: 0 0 6px; font-size: .8rem; }
-.commerce-cover strong { display: block; font: 700 clamp(1.35rem, 3vw, 2rem)/1.1 Georgia, serif; }
-.commerce-catalog { padding: 14px; }
-.commerce-books {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  margin: 8px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.commerce-books li {
-  display: grid;
-  place-content: center;
-  min-height: 76px;
-  padding: 6px 4px;
-  border-radius: 2px 6px 6px 2px;
-  background: #efd8a8;
-  font: 700 clamp(.7rem, 1.3vw, 1rem)/1.2 Georgia, serif;
-  text-align: center;
-  overflow-wrap: anywhere;
-}
-.commerce-books li:nth-child(2) { background: #cfe0d7; }
-.commerce-books li:nth-child(3) { background: #efd2c9; }
-.commerce-preview figcaption { margin-top: 8px; color: var(--muted); font-size: .8rem; }
+.commerce-preview img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.commerce-preview > span { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; font-weight: 650; }
+.commerce-preview:hover > span { background: var(--brand); color: var(--paper); }
