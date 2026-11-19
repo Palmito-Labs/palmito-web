@@ -38,27 +38,5 @@ pause.addEventListener('click', () => {
 });
 reduced.addEventListener('change', () => { if (reduced.matches) complete(); });
 document.addEventListener('visibilitychange', () => { if (document.hidden && running) pause.click(); });
-const form = document.querySelector('#pilot-form');
-const submit = document.querySelector('#pilot-submit');
-const formStatus = document.querySelector('#form-status');
-let endpoint;
-try { const url = new URL(form.dataset.endpoint); if(url.protocol === 'https:') endpoint = url.href; } catch {}
-if (endpoint) { submit.disabled = false; formStatus.textContent = 'Revisaremos tu solicitud y contactaremos contigo por correo.'; }
-form.addEventListener('submit', async event => {
-  event.preventDefault();
-  if (!endpoint || !form.reportValidity() || submit.disabled) return;
-  submit.disabled = true; formStatus.textContent = 'Enviando solicitud…';
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
-  try {
-    const response = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }, signal: controller.signal });
-    if (!response.ok) throw new Error('Submission failed');
-    formStatus.textContent = 'Solicitud recibida. Gracias por tu interés; contactaremos contigo por correo para atender tu consulta sobre el recepcionista IA.';
-    form.reset();
-  } catch {
-    formStatus.textContent = 'No hemos podido confirmar el envío. Tus datos siguen aquí: puedes reintentarlo o escribir a hola@palmitolabs.com. Si ya lo enviaste, evita duplicar la solicitud.';
-  } finally { clearTimeout(timeout); submit.disabled = false; }
-});
-
 // Close the mobile menu after choosing an in-page destination.
 document.querySelectorAll('.mobile-menu nav a').forEach(link => link.addEventListener('click', () => { link.closest('details').open = false; }));
